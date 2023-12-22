@@ -9,53 +9,61 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OnlineAccountDemo
 build_property.RootNamespace = OnlineAccountDemo
-build_property.ProjectDir = D:\Projects\Demo\OnlineAccountDemo\OnlineAccountDemo\
+build_property.ProjectDir = D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Projects\Demo\OnlineAccountDemo\OnlineAccountDemo
+build_property.MSBuildProjectDirectory = D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Projects/Demo/OnlineAccountDemo/OnlineAccountDemo/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/ViewModels/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld01vZGVsc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Demo/OnlineAccountDemo/OnlineAccountDemo/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Demo/OnlineAccountDemo/OnlineAccountDemo/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Demo/OnlineAccountDemo/OnlineAccountDemo/Pages/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Demo/OnlineAccountDemo/OnlineAccountDemo/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Projects/Demo/OnlineAccountDemo/OnlineAccountDemo/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Projects/Demo/OnlineAccountDemo/OnlineAccountDemo/Views/Login/Index.cshtml]
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Demo/OnlineAccountDemo/OnlineAccountDemo/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Demo/OnlineAccountDemo/OnlineAccountDemo/Views/UserAccountDetails/AccountDetails.cshtml]
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/UserAccountDetails/accDeposit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckFjY291bnREZXRhaWxzXGFjY0RlcG9zaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/UserAccountDetails/AccountDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckFjY291bnREZXRhaWxzXEFjY291bnREZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Demo/OnlineAccountDemo/OnlineAccountDemo/Views/Users/Create.cshtml]
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/UserAccountDetails/accWithdraw.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckFjY291bnREZXRhaWxzXGFjY1dpdGhkcmF3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Demo/OnlineAccountDemo/OnlineAccountDemo/Views/Shared/_Layout.cshtml]
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-nz55xdis89

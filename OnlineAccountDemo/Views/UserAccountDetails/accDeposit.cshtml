@@ -56,8 +56,14 @@
         </div>
     </div>
 
-    <a href="@Url.Action("accDeposit","UserAccountDetails", new { id = Model.Id })" class="btn btn-primary">Deposit Amount</a>
-    <a href="@Url.Action("accWithdraw","UserAccountDetails", new { id = Model.Id })" class="btn btn-dark">Withdrawl Amount</a>
+  
+
+    @using (Html.BeginForm("accDeposited", "UserAccountDetails", FormMethod.Post, new { @class = "w-100" }))
+    {
+        <input class="w-50"type="number" name="amt" placeholder="Enter Amount You Want To Deposit">
+        <button type="submit" class="btn btn-success w-100">Deposit</button>
+    }
+
 </div>
 
 

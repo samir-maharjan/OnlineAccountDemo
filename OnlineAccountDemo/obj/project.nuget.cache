@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lYDNWb+4Wox1lZOCMhH56AhAguiMwKEa3m3PZwxIv90czbe8sIiH0Bdcb4qPlSI96wMEpUCUT6NDDnRT6SX9Pw==",
+  "dgSpecHash": "Z6FW+HRfl2eVQ5Mimes9IWXJH9m/LPBehS4syLhpYob1/eLlqjCmbMH9//p3kdKaCta1FvaBnFa1DimysuimNw==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Demo\\OnlineAccountDemo\\OnlineAccountDemo\\OnlineAccountDemo.csproj",
+  "projectFilePath": "D:\\Projects\\Demo\\OnlineAccDemo\\OnlineAccountDemo\\OnlineAccountDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

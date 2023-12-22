@@ -11215,11 +11215,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Demo\\OnlineAccountDemo\\OnlineAccountDemo\\OnlineAccountDemo.csproj",
+      "projectUniqueName": "D:\\Projects\\Demo\\OnlineAccDemo\\OnlineAccountDemo\\OnlineAccountDemo.csproj",
       "projectName": "OnlineAccountDemo",
-      "projectPath": "D:\\Projects\\Demo\\OnlineAccountDemo\\OnlineAccountDemo\\OnlineAccountDemo.csproj",
+      "projectPath": "D:\\Projects\\Demo\\OnlineAccDemo\\OnlineAccountDemo\\OnlineAccountDemo.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Demo\\OnlineAccountDemo\\OnlineAccountDemo\\obj\\",
+      "outputPath": "D:\\Projects\\Demo\\OnlineAccDemo\\OnlineAccountDemo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",

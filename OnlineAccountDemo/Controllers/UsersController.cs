@@ -4,7 +4,7 @@ using OnlineAccountDemo.Models;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace employeeDailyTaskRecorder.Controllers
+namespace OnlineAccountDemo.Controllers
 {
     // [GeneralAuthorization]
     public class UsersController : Controller
@@ -17,18 +17,8 @@ namespace employeeDailyTaskRecorder.Controllers
             _db = db;
         }
         [HttpGet]
-        public IActionResult Create(/*Users users*/)
+        public IActionResult Create()
         {
-
-/*            Users newData = new Users();
-            newData.Name = users.Name;
-            newData.Address = users.Address;
-            newData.Email = users.Email;
-            newData.Password = HashPassword(users.Password);
-            _db.Users.Add(newData);
-            _db.SaveChanges();*/
-            //TempData["emailPresence"] = false;
-            //return RedirectToAction("Index", "User");
             return View();
         }
 

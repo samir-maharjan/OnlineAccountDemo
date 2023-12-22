@@ -29,6 +29,7 @@ if (!app.Environment.IsDevelopment())
 //app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
+app.UseDeveloperExceptionPage();
 app.UseRouting();
 
 app.UseAuthorization();
@@ -36,6 +37,6 @@ app.UseAuthorization();
 /*app.MapRazorPages();*/
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Auth}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

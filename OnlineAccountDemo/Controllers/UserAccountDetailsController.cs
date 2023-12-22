@@ -37,48 +37,98 @@ namespace OnlineAccountDemo.Controllers
             };
             return View(userInfo);
         }
-     /*   public IActionResult accDeposit(Record record)
+
+        public UserInfoVM InitCommon()
         {
-            
-            var ip = HttpContext.Connection.RemoteIpAddress?.ToString();
-            DateTime currentDateTime = DateTime.Now;
-            Record value = new Record();
-            value.Task = record.Task;
-            value.TaskPerformedDate = currentDateTime;
-            value.EmployeeId = _ActiveUser.Id;
-            value.Ipaddress = ip;
-            _db.Records.Add(value);
-            _db.SaveChanges();
-            if (_ActiveUser.IsAdmin)
+            Users? UserAccDetails = _db.Users.Where(x => x.Id == _ActiveUser.Id).Include(x => x.UsersAccount).FirstOrDefault();
+            UserInfoVM userInfo = new UserInfoVM()
             {
-                return RedirectToAction("Index", "Admin");
-            }
-            return RedirectToAction("EmployeeTask");
+                Id = _ActiveUser.Id,
+                Address = UserAccDetails.Address,
+                Name = UserAccDetails.Name,
+                Email = UserAccDetails.Email,
+                AccountNumber = UserAccDetails.UsersAccount.AccountNumber,
+                TotalBalance = UserAccDetails.UsersAccount.TotalBalance,
+                CreatedDate = UserAccDetails.CreatedDate,
+                UpdatedDate = UserAccDetails.UsersAccount.UpdatedDate,
+                Status = UserAccDetails.Status
+            };
+            return userInfo;
         }
-        public IActionResult accWithdrawl(Record record, String Type)
+
+
+        [HttpGet]
+        public IActionResult accDeposit(int id)
         {
-            Employee empData = SessionService.GetSession(HttpContext);
-            Record value = _db.Records.Find(record.Id);
-            value.Task = record.Task;
-            _db.SaveChanges();
-            if (empData.IsAdmin)
-            {
-                return RedirectToAction("Index", "Admin");
-            }
-            return RedirectToAction("EmployeeTask");
-        }*/
-      /*  public IActionResult deleteTask(int taskId)
+            UserInfoVM userInfo = InitCommon();
+            return View(userInfo);
+        }
+        [HttpPost]
+            public IActionResult accDeposited(int amt)
         {
-            Employee empData = SessionService.GetSession(HttpContext);
-            Record data = _db.Records.Find(taskId);
-            _db.Records.Remove(data);
+            UsersAccount? userAccInfo = _db.UsersAccount.Where(x => x.UserId == _ActiveUser.Id).FirstOrDefault();
+            userAccInfo.TotalBalance = userAccInfo.TotalBalance + amt;
+            userAccInfo.UpdatedDate = DateTime.Now;
+            _db.UsersAccount.Update(userAccInfo);
             _db.SaveChanges();
-            if (empData.IsAdmin)
+            return RedirectToAction("AccountDetails");
+        }
+
+        [HttpGet]
+        public IActionResult accWithdraw(int id)
+        {
+            UserInfoVM userInfo = InitCommon();
+            return View(userInfo);
+        }
+        [HttpPost]
+        public IActionResult accWithdrawal(int amt)
+        {
+            try
             {
-                return RedirectToAction("Index", "Admin");
+                UsersAccount? userAccInfo = _db.UsersAccount.Where(x => x.UserId == _ActiveUser.Id).FirstOrDefault();
+                if (userAccInfo.TotalBalance > amt)
+                {
+                    userAccInfo.TotalBalance = userAccInfo.TotalBalance - amt;
+                    userAccInfo.UpdatedDate = DateTime.Now;
+                    _db.UsersAccount.Update(userAccInfo);
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Your Balance is Low");
+                }
+
             }
-            return RedirectToAction("EmployeeTask");
-          
-        }*/
+            catch (Exception ex)
+            {
+            }
+
+            return RedirectToAction("AccountDetails");
+        }
+        /* public IActionResult accWithdrawl(Record record, String Type)
+         {
+             Employee empData = SessionService.GetSession(HttpContext);
+             Record value = _db.Records.Find(record.Id);
+             value.Task = record.Task;
+             _db.SaveChanges();
+             if (empData.IsAdmin)
+             {
+                 return RedirectToAction("Index", "Admin");
+             }
+             return RedirectToAction("EmployeeTask");
+         }
+         public IActionResult deleteTask(int taskId)
+         {
+             Employee empData = SessionService.GetSession(HttpContext);
+             Record data = _db.Records.Find(taskId);
+             _db.Records.Remove(data);
+             _db.SaveChanges();
+             if (empData.IsAdmin)
+             {
+                 return RedirectToAction("Index", "Admin");
+             }
+             return RedirectToAction("EmployeeTask");
+
+         }*/
     }
 }
