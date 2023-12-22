@@ -11,7 +11,7 @@ namespace OnlineAccountDemo.CustomAttributes
             bool isLogged = user != null;
             if (!isLogged)
             {
-                context.Result = new RedirectResult("/Auth/Index");
+                context.Result = new RedirectResult("/Home/Index");
                 return;
             }
         }

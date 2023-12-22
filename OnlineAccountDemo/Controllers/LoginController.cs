@@ -62,5 +62,11 @@ namespace OnlineAccountDemo.Controllers
                 return builder.ToString();
             }
         }
+
+        public IActionResult Logout()
+        {
+            SessionService.ClearSession(HttpContext);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

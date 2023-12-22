@@ -46,9 +46,9 @@ namespace OnlineAccountDemo.Controllers
 
             };
             _db.Users.Add(newData);
-            _db.SaveChanges(); 
+            _db.SaveChanges();
 
-            return View();
+            return RedirectToAction("Index", "Login");
         }
         public string HashPassword(string password)
         {
