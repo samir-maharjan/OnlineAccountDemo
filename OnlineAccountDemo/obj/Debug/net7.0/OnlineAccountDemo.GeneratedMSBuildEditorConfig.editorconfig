@@ -20,6 +20,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld01vZGVsc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/BrandModel/CreateBrandModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRNb2RlbFxDcmVhdGVCcmFuZE1vZGVsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/BrandModel/ListBrandModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRNb2RlbFxMaXN0QnJhbmRNb2RlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,6 +42,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairCategory/CreateBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQ2F0ZWdvcnlcQ3JlYXRlQnJhbmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairCategory/ListBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQ2F0ZWdvcnlcTGlzdEJyYW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Shared/_ValidationScriptsPartial.cshtml]

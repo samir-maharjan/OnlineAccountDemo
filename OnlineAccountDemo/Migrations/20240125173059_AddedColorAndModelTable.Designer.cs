@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineAccountDemo.Data;
 
@@ -11,9 +12,11 @@ using OnlineAccountDemo.Data;
 namespace OnlineAccountDemo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240125173059_AddedColorAndModelTable")]
+    partial class AddedColorAndModelTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,92 +112,6 @@ namespace OnlineAccountDemo.Migrations
                     b.ToTable("BrandModel");
                 });
 
-            modelBuilder.Entity("OnlineAccountDemo.Models.Employees", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("EmpCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmpDesignation")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmpName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UpdatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("OnlineAccountDemo.Models.JobStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("StatusCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StatusTitle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UpdatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("JobStatus");
-                });
-
             modelBuilder.Entity("OnlineAccountDemo.Models.ModelColor", b =>
                 {
                     b.Property<int>("Id")
@@ -221,47 +138,9 @@ namespace OnlineAccountDemo.Migrations
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UpdatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ModelColor");
-                });
-
-            modelBuilder.Entity("OnlineAccountDemo.Models.ModelIssues", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("ModelId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("IssueCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IssueTitle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
@@ -274,7 +153,9 @@ namespace OnlineAccountDemo.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ModelIssues");
+                    b.HasIndex("ModelId");
+
+                    b.ToTable("ModelColor");
                 });
 
             modelBuilder.Entity("OnlineAccountDemo.Models.Users", b =>
@@ -367,6 +248,17 @@ namespace OnlineAccountDemo.Migrations
                     b.Navigation("BrandCategory");
                 });
 
+            modelBuilder.Entity("OnlineAccountDemo.Models.ModelColor", b =>
+                {
+                    b.HasOne("OnlineAccountDemo.Models.BrandModel", "BrandModel")
+                        .WithMany("ModelColor")
+                        .HasForeignKey("ModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BrandModel");
+                });
+
             modelBuilder.Entity("OnlineAccountDemo.Models.UsersAccount", b =>
                 {
                     b.HasOne("OnlineAccountDemo.Models.Users", "Users")
@@ -381,6 +273,11 @@ namespace OnlineAccountDemo.Migrations
             modelBuilder.Entity("OnlineAccountDemo.Models.BrandCategory", b =>
                 {
                     b.Navigation("BrandModel");
+                });
+
+            modelBuilder.Entity("OnlineAccountDemo.Models.BrandModel", b =>
+                {
+                    b.Navigation("ModelColor");
                 });
 
             modelBuilder.Entity("OnlineAccountDemo.Models.Users", b =>
