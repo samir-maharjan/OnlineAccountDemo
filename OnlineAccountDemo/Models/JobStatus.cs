@@ -6,6 +6,7 @@ namespace OnlineAccountDemo.Models
 {
     public class JobStatus
     {
+        public ICollection<RepairAccessories> RepairAccessories { get; set; }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -1,11 +1,11 @@
-﻿@model IEnumerable<OnlineAccountDemo.Models.BrandCategory>
+﻿@model IEnumerable<OnlineAccountDemo.Models.RepairAccessories>
 
 @{
     ViewData["Title"] = "Brand List";
     Layout = null;
 }
 
-<a href="@Url.Action("CreateBrand","RepairCategory")" class="btn btn-outline-success">Add New Brand</a>
+@*<a href="@Url.Action("CreateBrand","RepairCategory")" class="btn btn-outline-success">Add New Brand</a>
 <a href="@Url.Action("CreateBrandModel","BrandModel")" class="btn btn-outline-success">Add New Model</a>
 <a href="@Url.Action("ListBrandModel","BrandModel")" class="btn btn-outline-success">Model List</a>
 <a href="@Url.Action("CreateColor","Color")" class="btn btn-outline-success">Add Color</a>
@@ -16,9 +16,7 @@
 <a href="@Url.Action("ListEmp","Employees")" class="btn btn-outline-success">Employees List</a>
 <a href="@Url.Action("CreateIssueStatus","IssuesStatus")" class="btn btn-outline-success">Add Issue Status</a>
 <a href="@Url.Action("ListIssueStatus","IssuesStatus")" class="btn btn-outline-success">List Issues List</a>
-<a href="@Url.Action("CreateRepairTransaction","RepairAccessories")" class="btn btn-outline-success">Add Repair Transations</a>
-<a href="@Url.Action("ListRepairTransaction","RepairAccessories")" class="btn btn-outline-success">Repair Transations List</a>
-
+*@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -28,18 +26,29 @@
         <thead>
             <tr>
                 <th scope="col">Brand Title</th>
-                <th scope="col">Brand Code</th>
+                <th scope="col">Model</th>
+                <th scope="col">IMEI Number</th>
+                <th scope="col">Color</th>
+                <th scope="col">Battery Percent</th>
+                <th scope="col">Issue</th>
+                <th scope="col">Employee</th>
                 <th scope="col">Status</th>
-                <th scope="col">Action</th>
+                <th scope="col">Price</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.BrandTitle</td>
-                    <td>@item.BrandCode</td>
-                    <td>@item.Status</td>
+                    <td>@item.BrandCategory.BrandTitle</td>
+                    <td>@item.BrandCategory.BrandModel.Where(x=>x.Id==item.ModelId).Select(x=>x.ModelTitle)</td>
+                    <td>@item.IMEINumber</td>
+                    <td>@item.ModelColor.ColorTitle</td>
+                    <td>@item.BatteryPercent</td>
+                    <td>@item.ModelIssues.IssueTitle</td>
+                    <td>@item.Employees.EmpName</td>
+                    <td>@item.JobStatus.StatusTitle</td>
+                    <td>@item.Price</td>
                     <td></td>
                 </tr>
             }

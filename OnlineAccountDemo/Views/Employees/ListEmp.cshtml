@@ -1,0 +1,49 @@
+﻿@model IEnumerable<OnlineAccountDemo.Models.Employees>
+
+@{
+    ViewData["Title"] = "Employees List";
+    Layout = null;
+}
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+
+<div class="container mt-5">
+    <a href="@Url.Action("CreateEmp","Employees")" class="btn btn-outline-success">Add New Color</a>
+    <a href="@Url.Action("ListBrand","RepairCategory")" class="btn btn-outline-success">DashBoard</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Employee Code</th>
+                <th scope="col">Employee Designation</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.EmpName</td>
+                    <td>@item.EmpCode</td>
+                    <td>@item.EmpDesignation</td>
+                    <td>@item.Status</td>
+                    <td></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts {
+
+}
+
+
+
+

@@ -7,8 +7,8 @@ namespace OnlineAccountDemo.Models
     public class BrandModel
     {
 
-/*        public ICollection<ModelColor> ModelColor { get; set; }
-        public ICollection<ModelIssues> ModelIssues { get; set; }*/
+        /*        public ICollection<ModelColor> ModelColor { get; set; }
+                public ICollection<ModelIssues> ModelIssues { get; set; }*/
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

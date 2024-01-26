@@ -7,6 +7,8 @@ namespace OnlineAccountDemo.Models
     public class BrandCategory
     {
         public ICollection<BrandModel> BrandModel { get; set; }
+        public ICollection<RepairAccessories> RepairAccessories { get; set; }
+
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

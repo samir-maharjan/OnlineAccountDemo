@@ -28,6 +28,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRNb2RlbFxMaXN0QnJhbmRNb2RlbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Color/CreateColor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JcQ3JlYXRlQ29sb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Color/ListColor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JcTGlzdENvbG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Employees/CreateEmp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXENyZWF0ZUVtcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Employees/ListEmp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXExpc3RFbXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,8 +56,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/IssuesStatus/CreateIssueStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzU3RhdHVzXENyZWF0ZUlzc3VlU3RhdHVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/IssuesStatus/ListIssueStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzU3RhdHVzXExpc3RJc3N1ZVN0YXR1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Issues/CreateIssues.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzXENyZWF0ZUlzc3Vlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Issues/ListIssues.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzXExpc3RJc3N1ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairAccessories/CreateRepairTransaction.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQWNjZXNzb3JpZXNcQ3JlYXRlUmVwYWlyVHJhbnNhY3Rpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairAccessories/ListRepairTransaction.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQWNjZXNzb3JpZXNcTGlzdFJlcGFpclRyYW5zYWN0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairCategory/CreateBrand.cshtml]
