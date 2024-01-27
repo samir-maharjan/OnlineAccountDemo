@@ -1,8 +1,11 @@
-﻿@*@model OnlineAccountDemo.Models.BrandCategory*@
+﻿@using OnlineAccountDemo.Models;
 
 @{
     ViewData["Title"] = "Add Brand";
     Layout = null;
+
+    var brandList = ViewBag.BrandList as List<BrandCategory>;
+
 }
 
 
@@ -29,7 +32,7 @@
     {
     <div class="mb-3">
             <label for="BrandId" class="form-label">Brand Id</label>
-            <input type="text" class="form-control" name="BrandId" placeholder="Enter Brand ID">
+            @Html.DropDownList("BrandId", new SelectList(brandList, "Id", "BrandTitle"),"Select Brand",new { @class = "form-control" })
     </div>
         <div class="mb-3">
             <label for="ModelTitle" class="form-label">Model Title</label>

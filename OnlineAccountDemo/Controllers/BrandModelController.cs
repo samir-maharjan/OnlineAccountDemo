@@ -42,6 +42,7 @@ namespace OnlineAccountDemo.Controllers
         [HttpGet]
         public IActionResult CreateBrandModel()
         {
+            ViewBag.BrandList = _db.BrandCategory.ToList();
             return View();
         }
 
