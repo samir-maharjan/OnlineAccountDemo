@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<OnlineAccountDemo.Models.RepairAccessories>
+@using OnlineAccountDemo.Models;
 
 @{
     ViewData["Title"] = "Brand List";
     Layout = null;
+    var brandModelList = ViewBag.ModelList as List<BrandModel>;
 }
 
 @*<a href="@Url.Action("CreateBrand","RepairCategory")" class="btn btn-outline-success">Add New Brand</a>
@@ -34,6 +36,7 @@
                 <th scope="col">Employee</th>
                 <th scope="col">Status</th>
                 <th scope="col">Price</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -41,7 +44,7 @@
             {
                 <tr>
                     <td>@item.BrandCategory.BrandTitle</td>
-                    <td>@item.BrandCategory.BrandModel.Where(x=>x.Id==item.ModelId).Select(x=>x.ModelTitle)</td>
+                    <td>@brandModelList!.Where(x=>x.Id == item.ModelId).Select(x=>x.ModelTitle).FirstOrDefault()</td>
                     <td>@item.IMEINumber</td>
                     <td>@item.ModelColor.ColorTitle</td>
                     <td>@item.BatteryPercent</td>

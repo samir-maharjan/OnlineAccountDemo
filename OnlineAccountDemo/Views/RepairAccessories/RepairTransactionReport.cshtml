@@ -1,0 +1,69 @@
+﻿@model IEnumerable<OnlineAccountDemo.Models.RepairAccessories>
+@using OnlineAccountDemo.Models;
+
+@{
+    ViewData["Title"] = "Brand List";
+    Layout = null;
+    var brandModelList = ViewBag.ModelList as List<BrandModel>;
+    var _issuesList = ViewBag.IssuesList as List<ModelIssues>;
+    var _pricingList = ViewBag.PricingList as List<IssuePricing>;
+
+}
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+
+<div class="container mt-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Brand Title</th>
+                <th scope="col">No. of Issues</th>
+                <th scope="col">Price</th>
+                <th scope="col">Amount</th>
+                @*                <th scope="col">Model</th>
+                <th scope="col">Model Issues</th>
+                <th scope="col">Count</th>*@
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var _issue in Model.Select(x => x.IssueId).Distinct().ToList())
+            {
+
+                foreach (var item in Model.GroupBy(x => x.BrandId))
+                {
+                    <tr>
+                        <td colspan="2"><h3>@item.Select(x=>x.BrandCategory.BrandTitle).FirstOrDefault() [@_issuesList!.Where(x=>x.Id==_issue).Select(x=>x.IssueTitle).FirstOrDefault()]</h3></td>
+                    </tr>
+
+                    foreach (var item1 in item.GroupBy(x => x.ModelId))
+                    {
+                        var _count = (int)item1.Where(x => x.IssueId == _issue).Count();
+                        var issue_price = _pricingList.Where(x => x.IssuesId == _issue && x.IssueBrandId == item.Key && x.IssueModelId == item1.Key).Select(x => x.IssuePrice).FirstOrDefault();
+                        var _price = issue_price == null ? 0 : issue_price;
+                        var amt = _price * _count; 
+                        <tr>
+                            <td>@brandModelList!.Where(x=>x.Id==item1.Key).Select(x=>x.ModelTitle).FirstOrDefault()</td>
+                            <td>@item1.Where(x=>x.IssueId == _issue).Count()</td>
+                            <td>@_price</td>
+                            <td>@amt</td>
+                        </tr>
+                    }
+
+                }
+            }
+           
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts {
+
+}
+
+
+
+

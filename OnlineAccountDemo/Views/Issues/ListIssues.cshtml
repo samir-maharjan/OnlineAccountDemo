@@ -11,7 +11,7 @@
 
 
 <div class="container mt-5">
-    <a href="@Url.Action("CreateIssues","Issues")" class="btn btn-outline-success">Add New Color</a>
+    <a href="@Url.Action("CreateIssues","Issues")" class="btn btn-outline-success">Add New Issue</a>
     <a href="@Url.Action("ListBrand","RepairCategory")" class="btn btn-outline-success">DashBoard</a>
     <table class="table">
         <thead>
@@ -28,7 +28,7 @@
                 <tr>
                     <td>@item.IssueTitle</td>
                     <td>@item.IssueCode</td>
-                    <td>@item.Status/td>
+                    <td>@item.Status</td>
                     <td></td>
                 </tr>
             }

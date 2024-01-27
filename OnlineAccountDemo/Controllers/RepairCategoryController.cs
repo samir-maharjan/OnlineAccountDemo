@@ -20,51 +20,6 @@ namespace OnlineAccountDemo.Controllers
 
         }
         [UserAuthorization]
-        public IActionResult AccountDetails()
-        {
-           Users? UserAccDetails = _db.Users.Where(x=>x.Id==_ActiveUser.Id).Include(x=>x.UsersAccount).FirstOrDefault();
-            UserInfoVM userInfo = new UserInfoVM()
-            {
-                Id= _ActiveUser.Id,
-                Address =UserAccDetails!.Address,
-                Name =UserAccDetails.Name,
-                Email = UserAccDetails.Email,
-                AccountNumber = UserAccDetails.UsersAccount.AccountNumber,
-                TotalBalance=UserAccDetails.UsersAccount.TotalBalance,
-                CreatedDate= UserAccDetails.CreatedDate,
-                UpdatedDate= UserAccDetails.UsersAccount.UpdatedDate,
-                Status= UserAccDetails.Status
-            };
-            return View(userInfo);
-        }
-
-        /*        public UserInfoVM InitCommon()
-                {
-                    Users? UserAccDetails = _db.Users.Where(x => x.Id == _ActiveUser.Id).Include(x => x.UsersAccount).FirstOrDefault();
-                    UserInfoVM userInfo = new UserInfoVM()
-                    {
-                        Id = _ActiveUser.Id,
-                        Address = UserAccDetails.Address,
-                        Name = UserAccDetails.Name,
-                        Email = UserAccDetails.Email,
-                        AccountNumber = UserAccDetails.UsersAccount.AccountNumber,
-                        TotalBalance = UserAccDetails.UsersAccount.TotalBalance,
-                        CreatedDate = UserAccDetails.CreatedDate,
-                        UpdatedDate = UserAccDetails.UsersAccount.UpdatedDate,
-                        Status = UserAccDetails.Status
-                    };
-                    return userInfo;
-                }
-        */
-
-        /*        [HttpGet]
-                public IActionResult accDeposit(int id)
-                {
-                    UserInfoVM userInfo = InitCommon();
-                    return View(userInfo);
-                }*/
-
-        [UserAuthorization]
         [HttpPost]
             public IActionResult CreateBrand(BrandCategory brand)
         {
