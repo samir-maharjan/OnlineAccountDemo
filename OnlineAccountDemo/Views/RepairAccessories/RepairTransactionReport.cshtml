@@ -14,56 +14,66 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
 
+
 <div class="container mt-5">
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Brand Title</th>
-                <th scope="col">No. of Issues</th>
-                <th scope="col">Price</th>
-                <th scope="col">Amount</th>
-                @*                <th scope="col">Model</th>
-                <th scope="col">Model Issues</th>
-                <th scope="col">Count</th>*@
-                <th>Action</th>
+                <th></th>
+
             </tr>
         </thead>
         <tbody>
-            @foreach(var _issue in Model.Select(x => x.IssueId).Distinct().ToList())
-            {
 
-                foreach (var item in Model.GroupBy(x => x.BrandId))
+            @foreach (var item in Model.GroupBy(x => x.BrandId))
+            {
+                decimal _grandtotal = 0;
+
+                <tr>
+                    <td colspan="4"><h3>@item.Select(x=>x.BrandCategory.BrandTitle).FirstOrDefault() </h3></td>
+
+                </tr>
+                foreach (var _issues in item.GroupBy(x => x.IssueId))
                 {
                     <tr>
-                        <td colspan="2"><h3>@item.Select(x=>x.BrandCategory.BrandTitle).FirstOrDefault() [@_issuesList!.Where(x=>x.Id==_issue).Select(x=>x.IssueTitle).FirstOrDefault()]</h3></td>
+                        <td>
+                            <h4><span class="badge bg-success">@_issuesList!.Where(x=>x.Id==_issues.Key).Select(x=>x.IssueTitle).FirstOrDefault()</span></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Model</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Amount</th>
                     </tr>
 
-                    foreach (var item1 in item.GroupBy(x => x.ModelId))
+                    foreach (var _models in _issues.GroupBy(x => x.ModelId))
                     {
-                        var _count = (int)item1.Where(x => x.IssueId == _issue).Count();
-                        var issue_price = _pricingList.Where(x => x.IssuesId == _issue && x.IssueBrandId == item.Key && x.IssueModelId == item1.Key).Select(x => x.IssuePrice).FirstOrDefault();
+
+                        var _count = (decimal)_models.Where(x => x.IssueId == _issues.Key).Count();
+                        var issue_price = _pricingList.Where(x => x.IssuesId == _issues.Key && x.IssueBrandId == item.Key && x.IssueModelId == _models.Key).Select(x => x.IssuePrice).FirstOrDefault();
                         var _price = issue_price == null ? 0 : issue_price;
-                        var amt = _price * _count; 
+                        var amt = (decimal)_price * _count;
                         <tr>
-                            <td>@brandModelList!.Where(x=>x.Id==item1.Key).Select(x=>x.ModelTitle).FirstOrDefault()</td>
-                            <td>@item1.Where(x=>x.IssueId == _issue).Count()</td>
+                            <td>@brandModelList!.Where(x=>x.Id==_models.Key).Select(x=>x.ModelTitle).FirstOrDefault()</td>
+                            <td>@_count</td>
                             <td>@_price</td>
                             <td>@amt</td>
                         </tr>
+                        _grandtotal += amt;
                     }
-
+                    <tr>
+                        <td colspan="3">Grand Total</td>
+                        <td>@_grandtotal</td>
+                    </tr>
                 }
+
             }
-           
         </tbody>
     </table>
 </div>
 
-
 @section Scripts {
 
 }
-
-
-
 

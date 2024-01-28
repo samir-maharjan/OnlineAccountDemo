@@ -27,7 +27,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Brand Title</th>
                 <th scope="col">Model</th>
                 <th scope="col">IMEI Number</th>
                 <th scope="col">Color</th>
@@ -40,20 +39,33 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var _brands in Model.GroupBy(x => x.BrandId))
             {
                 <tr>
-                    <td>@item.BrandCategory.BrandTitle</td>
-                    <td>@brandModelList!.Where(x=>x.Id == item.ModelId).Select(x=>x.ModelTitle).FirstOrDefault()</td>
-                    <td>@item.IMEINumber</td>
-                    <td>@item.ModelColor.ColorTitle</td>
-                    <td>@item.BatteryPercent</td>
-                    <td>@item.ModelIssues.IssueTitle</td>
-                    <td>@item.Employees.EmpName</td>
-                    <td>@item.JobStatus.StatusTitle</td>
-                    <td>@item.Price</td>
-                    <td></td>
+                    <td colspan="9"><h4><span class="badge bg-dark">@_brands.Select(x=>x.BrandCategory.BrandTitle).FirstOrDefault()</span></h4></td>
                 </tr>
+
+                @*                foreach (var _models in item.GroupBy(x => x.ModelId))
+            {*@
+                foreach(var item in _brands.OrderBy(x=>x.ModelId))
+                {
+                    <tr>
+                        <td>@brandModelList!.Where(x=>x.Id == item.ModelId).Select(x=>x.ModelTitle).FirstOrDefault()</td>
+                        <td>@item.IMEINumber</td>
+                        <td>@item.ModelColor.ColorTitle</td>
+                        <td>@item.BatteryPercent</td>
+                        <td>@item.ModelIssues.IssueTitle</td>
+                        <td>@item.Employees.EmpName</td>
+                        <td>@item.JobStatus.StatusTitle</td>
+                        <td>@item.Price</td>
+                        <td></td>
+                    </tr>
+                }
+            
+                @*   }*@
+
+
+
             }
 
         </tbody>

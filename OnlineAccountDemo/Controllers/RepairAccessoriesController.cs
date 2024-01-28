@@ -34,7 +34,8 @@ namespace OnlineAccountDemo.Controllers
             _repair.StatusId = model_.StatusId;
             _repair.IMEINumber = model_.IMEINumber;
             _repair.BatteryPercent = model_.BatteryPercent;
-            _repair.Price = model_.Price;
+            var _Price = _db.IssuePricing.Where(x=>x.IssueBrandId== model_.BrandId && x.IssueModelId== model_.ModelId && x.IssuesId == model_.IssueId).Select(x=>x.IssuePrice).FirstOrDefault();
+            _repair.Price = _Price == null? 0 : _Price;
             _repair.Status = true;
             _repair.Deleted = false;
             _repair.CreatedBy = _ActiveUser.Name;
@@ -55,6 +56,7 @@ namespace OnlineAccountDemo.Controllers
             ViewBag.BrandList = _db.BrandCategory.ToList();
             ViewBag.ModelList = _db.BrandModel.ToList();
             ViewBag.StatusList = _db.JobStatus.ToList();
+            ViewBag.PriceList = _db.IssuePricing.ToList();
             return View();
         }
 
