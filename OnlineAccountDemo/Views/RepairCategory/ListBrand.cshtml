@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Brand List";
-    Layout = null;
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
 }
 
 <a href="@Url.Action("CreateBrand","RepairCategory")" class="btn btn-outline-success">Add New Brand</a>
@@ -21,9 +21,6 @@
 <a href="@Url.Action("RepairTransactionReport","RepairAccessories")" class="btn btn-outline-success">Repair Transations Report</a>
 <a href="@Url.Action("CreatePricing","IssuesPricing")" class="btn btn-outline-success">Add Issues Pricing</a>
 <a href="@Url.Action("ListIssuesPricing","IssuesPricing")" class="btn btn-outline-success">Issues Pricing List</a>
-
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
 
 <div class="container mt-5">

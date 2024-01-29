@@ -2,14 +2,12 @@
 
 @{
     ViewData["Title"] = "Add Brand";
-    Layout = null;
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
 
     var brandList = ViewBag.BrandList as List<BrandCategory>;
 
 }
-
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
 <style>
     * {
@@ -27,22 +25,22 @@
 </style>
 
 <div class="container mt-5">
-    
+
     @using (Html.BeginForm("CreateBrandModel", "BrandModel", FormMethod.Post, new { @class = "w-100" }))
     {
-    <div class="mb-3">
+        <div class="mb-3">
             <label for="BrandId" class="form-label">Brand Id</label>
             @Html.DropDownList("BrandId", new SelectList(brandList, "Id", "BrandTitle"),"Select Brand",new { @class = "form-control" })
-    </div>
+        </div>
         <div class="mb-3">
             <label for="ModelTitle" class="form-label">Model Title</label>
             <input type="text" class="form-control" name="ModelTitle" placeholder="Enter Model Title">
         </div>
-    <div class="mb-3">
+        <div class="mb-3">
             <label for="ModelCode" class="form-label">Model Code:</label>
             <input type="text" class="form-control" name="ModelCode" placeholder="Enter Model Code">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     }
 
 </div>
@@ -50,7 +48,7 @@
 
 
 
- @section Scripts {
+@section Scripts {
 
 }
 
