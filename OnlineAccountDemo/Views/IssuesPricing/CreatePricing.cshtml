@@ -10,21 +10,6 @@
     var modelList = ViewBag.ModelList as List<BrandModel>;
 }
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .main-div {
-        margin: 100px auto;
-        width: 650px;
-        border-radius: 5px;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    }
-</style>
-
 <div class="container mt-5">
     
     @using (Html.BeginForm("CreatePricing", "IssuesPricing", FormMethod.Post, new { @class = "w-100" }))

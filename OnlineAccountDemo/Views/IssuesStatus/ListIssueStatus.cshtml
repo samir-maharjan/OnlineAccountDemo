@@ -5,9 +5,8 @@
     Layout = "~/Views/Shared/_ISMLayout.cshtml";
 }
 
-<div class="container mt-5">
-    <a href="@Url.Action("CreateIssue","IssuesStatus")" class="btn btn-outline-success">Add New Status</a>
-    <a href="@Url.Action("ListBrand","RepairCategory")" class="btn btn-outline-success">DashBoard</a>
+<div class="container">
+    <a href="@Url.Action("CreateIssueStatus","IssuesStatus")" class="btn btn-outline-success btn-lg bx-pull-right"><i class="bx bx-plus-medical"></i></a>
     <table class="table">
         <thead>
             <tr>
@@ -24,7 +23,10 @@
                     <td>@item.StatusTitle</td>
                     <td>@item.StatusCode</td>
                     <td>@item.Status</td>
-                    <td></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm"><i class="bi bi-box-arrow-up"></i></button>
+                        <button type="button" class="btn btn-outline-danger btn-sm"><i class="bx bx-minus-circle"></i></button>
+                    </td>
                 </tr>
             }
 

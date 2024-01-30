@@ -5,25 +5,9 @@
     Layout = "~/Views/Shared/_ISMLayout.cshtml";
 }
 
-<a href="@Url.Action("CreateBrand","RepairCategory")" class="btn btn-outline-success">Add New Brand</a>
-<a href="@Url.Action("CreateBrandModel","BrandModel")" class="btn btn-outline-success">Add New Model</a>
-<a href="@Url.Action("ListBrandModel","BrandModel")" class="btn btn-outline-success">Model List</a>
-<a href="@Url.Action("CreateColor","Color")" class="btn btn-outline-success">Add Color</a>
-<a href="@Url.Action("ListColor","Color")" class="btn btn-outline-success">Color List</a>
-<a href="@Url.Action("CreateIssues","Issues")" class="btn btn-outline-success">Add Issues</a>
-<a href="@Url.Action("ListIssues","Issues")" class="btn btn-outline-success">Issues List</a>
-<a href="@Url.Action("CreateEmp","Employees")" class="btn btn-outline-success">Add Employees</a>
-<a href="@Url.Action("ListEmp","Employees")" class="btn btn-outline-success">Employees List</a>
-<a href="@Url.Action("CreateIssueStatus","IssuesStatus")" class="btn btn-outline-success">Add Issue Status</a>
-<a href="@Url.Action("ListIssueStatus","IssuesStatus")" class="btn btn-outline-success">List Issues List</a>
-<a href="@Url.Action("CreateRepairTransaction","RepairAccessories")" class="btn btn-outline-success">Add Repair Transations</a>
-<a href="@Url.Action("ListRepairTransaction","RepairAccessories")" class="btn btn-outline-success">Repair Transations List</a>
-<a href="@Url.Action("RepairTransactionReport","RepairAccessories")" class="btn btn-outline-success">Repair Transations Report</a>
-<a href="@Url.Action("CreatePricing","IssuesPricing")" class="btn btn-outline-success">Add Issues Pricing</a>
-<a href="@Url.Action("ListIssuesPricing","IssuesPricing")" class="btn btn-outline-success">Issues Pricing List</a>
+<div class="container">
+    <a href="@Url.Action("CreateBrand","RepairCategory")" class="btn btn-outline-success btn-lg bx-pull-right"><i class="bx bx-plus-medical"></i></a>
 
-
-<div class="container mt-5">
     <table class="table">
         <thead>
             <tr>
@@ -40,7 +24,11 @@
                     <td>@item.BrandTitle</td>
                     <td>@item.BrandCode</td>
                     <td>@item.Status</td>
-                    <td></td>
+                    <td>
+                        <a class="btn btn-outline-primary btn-sm" href="@*@Url.Action(" HSOVNoted", new { id=item.rec01uin})*@"><i class="bi bi-box-arrow-up"></i></a>
+                        <a class="btn btn-outline-danger btn-sm" href="@*@Url.Action(" HSOVNoted", new { id=item.rec01uin})*@"><i class="bx bx-minus-circle"></i></a>
+
+                    </td>
                 </tr>
             }
 

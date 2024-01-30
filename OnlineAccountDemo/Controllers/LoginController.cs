@@ -40,7 +40,7 @@ namespace OnlineAccountDemo.Controllers
                 }
                 SessionService.SetSession(user, HttpContext);
 
-                return RedirectToAction("ListBrand", "RepairCategory");
+                return RedirectToAction("RepairTransactionReport", "RepairAccessories");
             }
             TempData["ErrorMessage"] = "Empty Field";
             return RedirectToAction("Index", "Login");
