@@ -1,0 +1,44 @@
+﻿@using OnlineAccountDemo.Models;
+@model OnlineAccountDemo.Models.BrandModel;
+
+@{
+    ViewData["Title"] = "Update Model";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+    int selectedBrandId = Model.BrandId;
+    var brandList = ViewBag.BrandList as List<BrandCategory>;
+
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("DeleteModel", "BrandModel", FormMethod.Post, new { @class = "w-100" }))
+    {
+        <div class="mb-3">
+            <label for="BrandId" class="form-label">Brand</label>
+           @brandList?.Where(x=>x.Id == selectedBrandId).Select(x=>x.BrandTitle).FirstOrDefault();
+        </div>
+         <div class="mb-3">
+            <label for="ModelCode" class="form-label">Model Code</label>
+            <input type="text" class="form-control" name="ModelCode" value="@Model.ModelCode" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="ModelTitle" class="form-label">Model Title</label>
+            <input type="text" class="form-control" name="ModelTitle" value="@Model.ModelTitle" readonly>
+        </div>
+       
+        <button type="submit" class="btn btn-danger">Delete</button>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+
+}
+
+
+
+

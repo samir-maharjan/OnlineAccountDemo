@@ -23,7 +23,7 @@ namespace OnlineAccountDemo.Controllers
 
         [UserAuthorization]
         [HttpPost]
-        public IActionResult CreateRepairTransaction (RepairAccessories model_)
+        public IActionResult CreateRepairTransaction(RepairAccessories model_)
         {
             RepairAccessories _repair = new RepairAccessories();
             _repair.BrandId = model_.BrandId;
@@ -34,8 +34,8 @@ namespace OnlineAccountDemo.Controllers
             _repair.StatusId = model_.StatusId;
             _repair.IMEINumber = model_.IMEINumber;
             _repair.BatteryPercent = model_.BatteryPercent;
-            var _Price = _db.IssuePricing.Where(x=>x.IssueBrandId== model_.BrandId && x.IssueModelId== model_.ModelId && x.IssuesId == model_.IssueId).Select(x=>x.IssuePrice).FirstOrDefault();
-            _repair.Price = _Price == null? 0 : _Price;
+            var _Price = _db.IssuePricing.Where(x => x.IssueBrandId == model_.BrandId && x.IssueModelId == model_.ModelId && x.IssuesId == model_.IssueId).Select(x => x.IssuePrice).FirstOrDefault();
+            _repair.Price = _Price == null ? 0 : _Price;
             _repair.Status = true;
             _repair.Deleted = false;
             _repair.CreatedBy = _ActiveUser.Name;
@@ -50,13 +50,13 @@ namespace OnlineAccountDemo.Controllers
         [HttpGet]
         public IActionResult CreateRepairTransaction()
         {
-            ViewBag.EmployeesList = _db.Employees.ToList();
-            ViewBag.IssuesList = _db.ModelIssues.ToList();
-            ViewBag.ModelColor = _db.ModelColor.ToList();
-            ViewBag.BrandList = _db.BrandCategory.ToList();
-            ViewBag.ModelList = _db.BrandModel.ToList();
-            ViewBag.StatusList = _db.JobStatus.ToList();
-            ViewBag.PriceList = _db.IssuePricing.ToList();
+            ViewBag.EmployeesList = _db.Employees.Where(s => s.Status).ToList();
+            ViewBag.IssuesList = _db.ModelIssues.Where(s => s.Status).ToList();
+            ViewBag.ModelColor = _db.ModelColor.Where(s => s.Status).ToList();
+            ViewBag.BrandList = _db.BrandCategory.Where(s => s.Status).ToList();
+            ViewBag.ModelList = _db.BrandModel.Where(s => s.Status).ToList();
+            ViewBag.StatusList = _db.JobStatus.Where(s => s.Status).ToList();
+            ViewBag.PriceList = _db.IssuePricing.Where(s => s.Status).ToList();
             return View();
         }
 
@@ -80,43 +80,101 @@ namespace OnlineAccountDemo.Controllers
         [HttpGet]
         public IActionResult RepairTransactionReport()
         {
-            ViewBag.ModelList = _db.BrandModel.ToList();
-            ViewBag.BrandList = _db.BrandCategory.ToList();
-            ViewBag.IssuesList = _db.ModelIssues.ToList();
-            ViewBag.PricingList = _db.IssuePricing.ToList();
+            ViewBag.ModelList = _db.BrandModel.Where(x => x.Status).ToList();
+            ViewBag.BrandList = _db.BrandCategory.Where(x => x.Status).ToList();
+            ViewBag.IssuesList = _db.ModelIssues.Where(x => x.Status).ToList();
+            ViewBag.PricingList = _db.IssuePricing.Where(x => x.Status).ToList();
 
             List<RepairAccessories> repairList = _db.RepairAccessories
-    .Include(ra => ra.BrandCategory)
-/*        .ThenInclude(bm => bm.BrandModel)*/
-    .Include(ra => ra.ModelColor)
-    .Include(ra => ra.ModelIssues)
-    .Include(ra => ra.Employees)
-    .Include(ra => ra.JobStatus)
-    .ToList();
+                .Include(ra => ra.BrandCategory)
+                .Include(ra => ra.ModelColor)
+                .Include(ra => ra.ModelIssues)
+                .Include(ra => ra.Employees)
+                .Include(ra => ra.JobStatus)
+                .ToList();
             ViewBag.RepairList = repairList;
-            /*List<VMRepairTransactionReport> _report = new List<VMRepairTransactionReport>();
-
-            foreach (var item in repairList.GroupBy(x=>x.BrandId))
-            {
-                foreach (var item1 in item.GroupBy(x=>x.ModelId))
-                {
-                    var issues = item1.Select(x => x.IssueId).Distinct().ToList();
-                    foreach (var item2 in issues)
-                    {
-                        _report.Add(new VMRepairTransactionReport
-                        {
-                            Brand = item.Select(x => x.BrandCategory.BrandTitle).FirstOrDefault(),
-                            Model = item1.Key,
-                            ModelIssues = item2,
-                            IssueCount= item1.Where(x=>x.ModelId == item2).Count()
-                        });
-                    }
-
-                }
-
-            }*/
 
             return View(repairList);
+        }
+
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult UpdateRepairTran(int? id)
+        {
+            ViewBag.EmployeesList = _db.Employees.Where(s => s.Status).ToList();
+            ViewBag.IssuesList = _db.ModelIssues.Where(s => s.Status).ToList();
+            ViewBag.ModelColor = _db.ModelColor.Where(s => s.Status).ToList();
+            ViewBag.BrandList = _db.BrandCategory.Where(s => s.Status).ToList();
+            ViewBag.ModelList = _db.BrandModel.Where(s => s.Status).ToList();
+            ViewBag.StatusList = _db.JobStatus.Where(s => s.Status).ToList();
+            ViewBag.PriceList = _db.IssuePricing.Where(s => s.Status).ToList();
+
+
+            RepairAccessories? _RepairAccessories = _db.RepairAccessories.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_RepairAccessories);
+        }
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult UpdateRepairTran(RepairAccessories _tran)
+        {
+            RepairAccessories? _RepairAccessories = _db.RepairAccessories.Where(x => x.Id == _tran.Id)
+              .FirstOrDefault();
+
+            _RepairAccessories!.BrandId = _tran.BrandId;
+            _RepairAccessories.ModelId = _tran.ModelId;
+            _RepairAccessories.Colorid = _tran.Colorid;
+            _RepairAccessories.IssueId = _tran.IssueId;
+            _RepairAccessories.EmpId = _tran.EmpId;
+            _RepairAccessories.StatusId = _tran.StatusId;
+            _RepairAccessories.IMEINumber = _tran.IMEINumber;
+            _RepairAccessories.BatteryPercent = _tran.BatteryPercent;
+            var _Price = _db.IssuePricing.Where(x => x.IssueBrandId == _tran.BrandId && x.IssueModelId == _tran.ModelId && x.IssuesId == _tran.IssueId).Select(x => x.IssuePrice).FirstOrDefault();
+            _tran.Price = _Price == null ? 0 : _Price;
+            _RepairAccessories.UpdatedBy = _ActiveUser.Name;
+            _RepairAccessories.UpdatedDate = DateTime.Now;
+            _db.RepairAccessories.Update(_RepairAccessories);
+            _db.SaveChanges();
+            return RedirectToAction("ListRepairTransaction");
+        }
+
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult DeleteRepairTran(int? id)
+        {
+            ViewBag.EmployeesList = _db.Employees.Where(s => s.Status).ToList();
+            ViewBag.IssuesList = _db.ModelIssues.Where(s => s.Status).ToList();
+            ViewBag.ModelColor = _db.ModelColor.Where(s => s.Status).ToList();
+            ViewBag.BrandList = _db.BrandCategory.Where(s => s.Status).ToList();
+            ViewBag.ModelList = _db.BrandModel.Where(s => s.Status).ToList();
+            ViewBag.StatusList = _db.JobStatus.Where(s => s.Status).ToList();
+            ViewBag.PriceList = _db.IssuePricing.Where(s => s.Status).ToList();
+            //todo: Have to implement INITCOMMON For ViewBag LISTS
+            RepairAccessories? _RepairAccessories = _db.RepairAccessories.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_RepairAccessories);
+        }
+
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult DeleteRepairTran(RepairAccessories _tran)
+        {
+            RepairAccessories? _RepairAccessories = _db.RepairAccessories.Where(x => x.Id == _tran.Id)
+              .FirstOrDefault();
+
+            _RepairAccessories!.Status = false;
+            _RepairAccessories.Deleted = true;
+            _RepairAccessories.UpdatedBy = _ActiveUser.Name;
+            _RepairAccessories.UpdatedDate = DateTime.Now;
+            _db.RepairAccessories.Update(_RepairAccessories);
+            _db.SaveChanges();
+            return RedirectToAction("ListRepairTransaction");
         }
 
     }

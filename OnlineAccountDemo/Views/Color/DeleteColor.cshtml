@@ -1,0 +1,36 @@
+﻿@model OnlineAccountDemo.Models.ModelColor
+
+@{
+    ViewData["Title"] = "Delete Color";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("DeleteColor", "Color", FormMethod.Post, new { @class = "w-100" }))
+    {
+        <div class="mb-3">
+            <label for="ColorCode" class="form-label">Color Code</label>
+            <input type="text" class="form-control" name="ColorCode" value="@Model.ColorCode" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="ColorTitle" class="form-label">Color Title</label>
+            <input type="text" class="form-control" name="ColorTitle" value="@Model.ColorTitle" readonly>
+        </div>
+
+        <button type="submit" class="btn btn-danger">Delete</button>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+
+}
+
+
+
+

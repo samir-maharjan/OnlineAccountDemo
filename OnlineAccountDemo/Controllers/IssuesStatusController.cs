@@ -49,8 +49,63 @@ namespace OnlineAccountDemo.Controllers
         [HttpGet]
         public IActionResult ListIssueStatus()
         {
-            List<JobStatus> statusList = _db.JobStatus.ToList();
+            List<JobStatus> statusList = _db.JobStatus.Where(x=>x.Status).ToList();
             return View(statusList);
+        }
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult UpdateIssueStatus(int? id)
+        {
+
+            JobStatus? _JobStatus = _db.JobStatus.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_JobStatus);
+        }
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult UpdateIssueStatus(JobStatus job)
+        {
+            JobStatus? _JobStatus = _db.JobStatus.Where(x => x.Id == job.Id)
+              .FirstOrDefault();
+
+            _JobStatus!.StatusCode = job.StatusCode;
+            _JobStatus.StatusTitle = job.StatusTitle;
+            _JobStatus.UpdatedBy = _ActiveUser.Name;
+            _JobStatus.UpdatedDate = DateTime.Now;
+            _db.JobStatus.Update(_JobStatus);
+            _db.SaveChanges();
+            return RedirectToAction("ListIssueStatus");
+        }
+
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult DeleteIssueStatus(int? id)
+        {
+            JobStatus? _JobStatus = _db.JobStatus.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_JobStatus);
+        }
+
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult DeleteIssueStatus(JobStatus job)
+        {
+            JobStatus? _JobStatus = _db.JobStatus.Where(x => x.Id == job.Id)
+              .FirstOrDefault();
+
+            _JobStatus!.Status = false;
+            _JobStatus.Deleted = true;
+            _JobStatus.UpdatedBy = _ActiveUser.Name;
+            _JobStatus.UpdatedDate = DateTime.Now;
+            _db.JobStatus.Update(_JobStatus);
+            _db.SaveChanges();
+            return RedirectToAction("ListIssueStatus");
         }
 
     }

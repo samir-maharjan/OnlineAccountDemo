@@ -1,7 +1,7 @@
 ﻿@using OnlineAccountDemo.Models;
 
 @{
-    ViewData["Title"] = "Add Brand";
+    ViewData["Title"] = "Add Model";
     Layout = "~/Views/Shared/_ISMLayout.cshtml";
 
 
@@ -14,17 +14,19 @@
     @using (Html.BeginForm("CreateBrandModel", "BrandModel", FormMethod.Post, new { @class = "w-100" }))
     {
         <div class="mb-3">
-            <label for="BrandId" class="form-label">Brand Id</label>
+            <label for="BrandId" class="form-label">Brand</label>
+            <input type="hidden" class="form-control" value="@Model.Id" name="Id">
             @Html.DropDownList("BrandId", new SelectList(brandList, "Id", "BrandTitle"),"Select Brand",new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="ModelCode" class="form-label">Model Code</label>
+            <input type="text" class="form-control" name="ModelCode" placeholder="Enter Model Code">
         </div>
         <div class="mb-3">
             <label for="ModelTitle" class="form-label">Model Title</label>
             <input type="text" class="form-control" name="ModelTitle" placeholder="Enter Model Title">
         </div>
-        <div class="mb-3">
-            <label for="ModelCode" class="form-label">Model Code:</label>
-            <input type="text" class="form-control" name="ModelCode" placeholder="Enter Model Code">
-        </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     }
 

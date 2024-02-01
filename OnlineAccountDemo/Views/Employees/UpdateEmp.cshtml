@@ -1,0 +1,40 @@
+﻿@model OnlineAccountDemo.Models.Employees
+
+@{
+    ViewData["Title"] = "Edit Employee";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("UpdateEmp", "Employees", FormMethod.Post, new { @class = "w-100" }))
+    {
+        <div class="mb-3">
+            <label for="EmpCode" class="form-label">Employee Code</label>
+            <input type="text" class="form-control" name="EmpCode" value="@Model.EmpCode">
+        </div>
+
+        <div class="mb-3">
+            <label for="EmpName" class="form-label">Employee Name</label>
+            <input type="text" class="form-control" name="EmpName" value="@Model.EmpName">
+        </div>
+
+        <div class="mb-3">
+            <label for="EmpDesignation" class="form-label">Designation</label>
+            <input type="text" class="form-control" name="EmpDesignation" value="@Model.EmpDesignation">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+
+}
+
+
+
+

@@ -49,8 +49,63 @@ namespace OnlineAccountDemo.Controllers
         [HttpGet]
         public IActionResult ListColor()
         {
-            List<ModelColor> colorList = _db.ModelColor.ToList();
+            List<ModelColor> colorList = _db.ModelColor.Where(x=>x.Status).ToList();
             return View(colorList);
+        }
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult UpdateColor(int? id)
+        {
+
+            ModelColor? _ModelColor = _db.ModelColor.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_ModelColor);
+        }
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult UpdateColor(ModelColor color)
+        {
+            ModelColor? _ModelColor = _db.ModelColor.Where(x => x.Id == color.Id)
+              .FirstOrDefault();
+
+            _ModelColor!.ColorCode = color.ColorCode;
+            _ModelColor.ColorTitle = color.ColorCode;
+            _ModelColor.UpdatedBy = _ActiveUser.Name;
+            _ModelColor.UpdatedDate = DateTime.Now;
+            _db.ModelColor.Update(_ModelColor);
+            _db.SaveChanges();
+            return RedirectToAction("ListColor");
+        }
+
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult DeleteColor(int? id)
+        {
+            ModelColor? _ModelColor = _db.ModelColor.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_ModelColor);
+        }
+
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult DeleteColor(ModelColor color)
+        {
+            ModelColor? _ModelColor = _db.ModelColor.Where(x => x.Id == color.Id)
+              .FirstOrDefault();
+
+            _ModelColor!.Status = false;
+            _ModelColor.Deleted = true;
+            _ModelColor.UpdatedBy = _ActiveUser.Name;
+            _ModelColor.UpdatedDate = DateTime.Now;
+            _db.ModelColor.Update(_ModelColor);
+            _db.SaveChanges();
+            return RedirectToAction("ListColor");
         }
 
     }

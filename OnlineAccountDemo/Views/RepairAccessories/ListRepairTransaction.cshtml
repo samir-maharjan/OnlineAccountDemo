@@ -2,7 +2,7 @@
 @using OnlineAccountDemo.Models;
 
 @{
-    ViewData["Title"] = "Brand List";
+    ViewData["Title"] = "List Repair Transactions";
     Layout = "~/Views/Shared/_ISMLayout.cshtml";
 
     var brandModelList = ViewBag.ModelList as List<BrandModel>;
@@ -47,8 +47,8 @@
                         <td>@item.JobStatus.StatusTitle</td>
                         <td>@item.Price</td>
                         <td>
-                            <button type="button" class="btn btn-outline-primary btn-sm"><i class="bi bi-box-arrow-up"></i></button>
-                            <button type="button" class="btn btn-outline-danger btn-sm"><i class="bx bx-minus-circle"></i></button>
+                            <a class="btn btn-outline-primary btn-sm" href="@Url.Action("UpdateRepairTran", new { id=item.Id})"><i class="bi bi-box-arrow-up"></i></a>
+                            <a class="btn btn-outline-danger btn-sm" href="@Url.Action("DeleteRepairTran", new { id=item.Id})"><i class="bx bx-minus-circle"></i></a>
                         </td>
                     </tr>
                 }

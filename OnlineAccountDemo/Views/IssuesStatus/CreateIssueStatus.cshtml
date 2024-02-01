@@ -1,25 +1,23 @@
-﻿@*@model OnlineAccountDemo.Models.BrandCategory*@
-
-@{
-    ViewData["Title"] = "Add Brand";
+﻿@{
+    ViewData["Title"] = "Add Status";
     Layout = "~/Views/Shared/_ISMLayout.cshtml";
 
 }
 
 <div class="container">
-    
+
     @using (Html.BeginForm("CreateIssueStatus", "IssuesStatus", FormMethod.Post, new { @class = "w-100" }))
     {
-
+        <div class="mb-3">
+            <label for="StatusCode" class="form-label">Stauts Code</label>
+            <input type="text" class="form-control" name="StatusCode" placeholder="Enter Status Code">
+        </div>
         <div class="mb-3">
             <label for="StatusTitle" class="form-label">Status Title</label>
             <input type="text" class="form-control" name="StatusTitle" placeholder="Enter Status Title">
         </div>
-    <div class="mb-3">
-            <label for="StatusCode" class="form-label">Stauts Code:</label>
-            <input type="text" class="form-control" name="StatusCode" placeholder="Enter Status Code">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
     }
 
 </div>
@@ -27,7 +25,7 @@
 
 
 
- @section Scripts {
+@section Scripts {
 
 }
 

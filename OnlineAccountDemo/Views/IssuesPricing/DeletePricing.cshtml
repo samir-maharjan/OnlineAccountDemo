@@ -1,0 +1,53 @@
+﻿@using OnlineAccountDemo.Models;
+@model OnlineAccountDemo.Models.IssuePricing;
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+    int selectedBrandId = Model.IssueBrandId;
+    int selectedModelId = Model.IssueModelId;
+    int selectedIssueId = Model.IssuesId;
+
+    var issuesList = ViewBag.IssuesList as List<ModelIssues>;
+    var brandList = ViewBag.BrandList as List<BrandCategory>;
+    var modelList = ViewBag.ModelList as List<BrandModel>;
+}
+
+<div class="container mt-5">
+    
+    @using (Html.BeginForm("DeletePricing", "IssuesPricing", FormMethod.Post, new { @class = "w-100" }))
+    {
+
+        <div class="mb-3">
+            <label for="BrandId" class="form-label">Brand</label>
+            @Html.DropDownList("IssueBrandId", new SelectList(brandList, "Id", "BrandTitle",selectedBrandId),"Select Brand",new { @class = "form-control" })
+        </div>
+            <div class="mb-3">
+            <label for="ModelId" class="form-label">Model</label>
+            @Html.DropDownList("IssueModelId", new SelectList(modelList, "Id", "ModelTitle",selectedModelId),"Select Model",new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+            <label for="IssuesId" class="form-label">Issue</label>
+            @Html.DropDownList("IssuesId", new SelectList(issuesList, "Id", "IssueTitle",selectedIssueId),"Select Issue",new { @class = "form-control" })
+            </div>
+
+            <div class="mb-3">
+            <label for="IssuePrice" class="form-label">Price</label>
+            <input type="number" class="form-control" name="IssuePrice" value="@Model.IssuePrice"readonly>
+            </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    }
+
+</div>
+
+
+
+
+ @section Scripts {
+
+}
+
+
+
+

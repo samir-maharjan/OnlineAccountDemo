@@ -47,8 +47,62 @@ namespace OnlineAccountDemo.Controllers
         [HttpGet]
         public IActionResult ListBrand()
         {
-            List<BrandCategory> brandList = _db.BrandCategory.ToList();
+            List<BrandCategory> brandList = _db.BrandCategory.Where(x=>x.Status).ToList();
             return View(brandList);
+        }
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult UpdateBrand(int? id)
+        {
+            BrandCategory? _brand = _db.BrandCategory.Where(x => x.Id == id)
+                .FirstOrDefault();
+           
+            return View(_brand);
+        }
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult UpdateBrand(BrandCategory brand)
+        {
+            BrandCategory? _brand = _db.BrandCategory.Where(x => x.Id == brand.Id)
+              .FirstOrDefault();
+
+            _brand!.BrandCode = brand.BrandCode;
+            _brand.BrandTitle = brand.BrandTitle;
+            _brand.UpdatedBy = _ActiveUser.Name;
+            _brand.UpdatedDate = DateTime.Now;
+            _db.BrandCategory.Update(_brand);
+            _db.SaveChanges();
+            return RedirectToAction("ListBrand");
+        }
+
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult DeleteBrand(int? id)
+        {
+            BrandCategory? _brand = _db.BrandCategory.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_brand);
+        }
+
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult DeleteBrand(BrandCategory brand)
+        {
+            BrandCategory? _brand = _db.BrandCategory.Where(x => x.Id == brand.Id)
+              .FirstOrDefault();
+
+            _brand!.Status = false;
+            _brand.Deleted = true;
+            _brand.UpdatedBy = _ActiveUser.Name;
+            _brand.UpdatedDate = DateTime.Now;
+            _db.BrandCategory.Update(_brand);
+            _db.SaveChanges();
+            return RedirectToAction("ListBrand");
         }
 
     }

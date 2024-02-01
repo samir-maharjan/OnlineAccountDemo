@@ -1,0 +1,85 @@
+﻿@using OnlineAccountDemo.Models;
+@model OnlineAccountDemo.Models.RepairAccessories;
+
+@{
+    ViewData["Title"] = "Delete Repair Transaction";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+    int selectedBrandId = Model.BrandId;
+    int selectedModelId = Model.ModelId;
+    int selectedColorId = Model.Colorid;
+    int selectedIssueId = Model.IssueId;
+    int selectedEmpId = Model.EmpId;
+    int selectedStatusId = Model.StatusId;
+
+    var employeesList = ViewBag.EmployeesList as List<Employees>;
+    var issuesList = ViewBag.IssuesList as List<ModelIssues>;
+    var colorList = ViewBag.ModelColor as List<ModelColor>;
+    var brandList = ViewBag.BrandList as List<BrandCategory>;
+    var modelList = ViewBag.ModelList as List<BrandModel>;
+    var statusList = ViewBag.StatusList as List<JobStatus>; 
+    var priceList = ViewBag.PriceList as List<IssuePricing>; 
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("DeleteRepairTran", "RepairAccessories", FormMethod.Post, new { @class = "w-50" }))
+    {
+        <div class="mb-3">
+            <label for="BrandId" class="form-label">Brand</label>
+            @Html.DropDownList("BrandId", new SelectList(brandList, "Id", "BrandTitle",selectedBrandId),"Select Brand",new { @class = "form-control", @readonly="readonly"})
+        </div>
+        <div class="mb-3">
+            <label for="ModelId" class="form-label">Model</label>
+            @Html.DropDownList("ModelId", new SelectList(modelList, "Id", "ModelTitle",selectedModelId),"Select Model",new { @class = "form-control" , @readonly="readonly"})
+        </div>
+        <div class="mb-3">
+            <label for="BrandCode" class="form-label">IEMI Number</label>
+            <input type="text" class="form-control" name="IMEINumber" value="@Model.IMEINumber" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="Colorid" class="form-label">Color</label>
+            @Html.DropDownList("Colorid", new SelectList(colorList, "Id", "ColorTitle",selectedColorId),"Select Color",new { @class = "form-control", @readonly="readonly" })
+        </div>
+
+        <div class="mb-3">
+            <label for="BrandCode" class="form-label">Battery %</label>
+            <input type="number" class="form-control" name="BatteryPercent" value="@Model.BatteryPercent" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="BrandCode" class="form-label">Issues</label>
+            @Html.DropDownList("IssueId", new SelectList(issuesList, "Id", "IssueTitle",selectedIssueId),"Select Issue",new { @class = "form-control" , @readonly="readonly"})
+        </div>
+
+        <div class="mb-3">
+            <label for="EmpId" class="form-label">Employee</label>
+            @Html.DropDownList("EmpId", new SelectList(employeesList, "Id", "EmpName",selectedEmpId),"Select Employee",new { @class = "form-control" , @readonly="readonly"})
+        </div>
+
+        <div class="mb-3">
+            <label for="EmpId" class="form-label">Status</label>
+            @Html.DropDownList("StatusId", new SelectList(statusList, "Id", "StatusTitle",selectedStatusId),"Select Status",new { @class = "form-control", @readonly="readonly" })
+        </div>
+
+@*        <div class="mb-3">
+            <label for="BrandCode" class="form-label">Price</label>
+            <input type="number" class="form-control" name="Price" placeholder="">
+        </div>
+*@
+        <button type="submit" class="btn btn-danger">Delete</button>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+
+}
+
+
+
+

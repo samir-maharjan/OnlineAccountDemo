@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<OnlineAccountDemo.Models.ModelColor>
 
 @{
-    ViewData["Title"] = "Model List";
+    ViewData["Title"] = "Color List";
     Layout = "~/Views/Shared/_ISMLayout.cshtml";
 }
 
@@ -25,8 +25,8 @@
                     <td>@item.ColorCode</td>
                     <td>@item.Status/td>
                     <td>
-                        <button type="button" class="btn btn-outline-primary btn-sm"><i class="bi bi-box-arrow-up"></i></button>
-                        <button type="button" class="btn btn-outline-danger btn-sm"><i class="bx bx-minus-circle"></i></button>
+                        <a class="btn btn-outline-primary btn-sm" href="@Url.Action("UpdateColor", new { id=item.Id})"><i class="bi bi-box-arrow-up"></i></a>
+                        <a class="btn btn-outline-danger btn-sm" href="@Url.Action("DeleteColor", new { id=item.Id})"><i class="bx bx-minus-circle"></i></a>
                     </td>
                 </tr>
             }

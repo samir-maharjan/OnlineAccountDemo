@@ -1,25 +1,25 @@
 ﻿@*@model OnlineAccountDemo.Models.BrandCategory*@
 
 @{
-    ViewData["Title"] = "Add Brand";
+    ViewData["Title"] = "Add Color";
     Layout = "~/Views/Shared/_ISMLayout.cshtml";
 
 }
 
 <div class="container">
-    
+
     @using (Html.BeginForm("CreateColor", "Color", FormMethod.Post, new { @class = "w-100" }))
     {
-
         <div class="mb-3">
-            <label for="ColorTitle" class="form-label">Model Title</label>
+            <label for="ColorCode" class="form-label">Color Code</label>
+            <input type="text" class="form-control" name="ColorCode" placeholder="Enter Color Code">
+        </div>
+        <div class="mb-3">
+            <label for="ColorTitle" class="form-label">Color Title</label>
             <input type="text" class="form-control" name="ColorTitle" placeholder="Enter Color Title">
         </div>
-    <div class="mb-3">
-            <label for="ColorCode" class="form-label">Color Code:</label>
-            <input type="text" class="form-control" name="ColorCode" placeholder="Enter Color Code">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
     }
 
 </div>
@@ -27,7 +27,7 @@
 
 
 
- @section Scripts {
+@section Scripts {
 
 }
 

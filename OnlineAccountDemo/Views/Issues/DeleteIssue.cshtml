@@ -1,0 +1,37 @@
+﻿@model OnlineAccountDemo.Models.ModelIssues;
+
+@{
+    ViewData["Title"] = "Delete Issues";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+}
+
+<div class="container">
+    
+    @using (Html.BeginForm("DeleteIssue", "Issues", FormMethod.Post, new { @class = "w-100" }))
+    {
+
+        <div class="mb-3">
+            <label for="IssueCode" class="form-label">Issue Code</label>
+            <input type="text" class="form-control" name="IssueCode" value="@Model.IssueCode" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="IssueTitle" class="form-label">Issue Title</label>
+            <input type="text" class="form-control" name="IssueTitle" value="@Model.IssueTitle" readonly>
+        </div>
+    
+    <button type="submit" class="btn btn-danger">Delete</button>
+    }
+
+</div>
+
+
+
+
+ @section Scripts {
+
+}
+
+
+
+

@@ -1,0 +1,37 @@
+﻿@model OnlineAccountDemo.Models.ModelIssues;
+
+@{
+    ViewData["Title"] = "Edit Issues";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+}
+
+<div class="container">
+    
+    @using (Html.BeginForm("UpdateIssue", "Issues", FormMethod.Post, new { @class = "w-100" }))
+    {
+
+        <div class="mb-3">
+            <label for="IssueCode" class="form-label">Issue Code</label>
+            <input type="text" class="form-control" name="IssueCode" value="@Model.IssueCode">
+        </div>
+
+        <div class="mb-3">
+            <label for="IssueTitle" class="form-label">Issue Title</label>
+            <input type="text" class="form-control" name="IssueTitle" value="@Model.IssueTitle">
+        </div>
+    
+    <button type="submit" class="btn btn-primary">Update</button>
+    }
+
+</div>
+
+
+
+
+ @section Scripts {
+
+}
+
+
+
+

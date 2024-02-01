@@ -1,0 +1,37 @@
+﻿@model OnlineAccountDemo.Models.BrandCategory
+
+@{
+    ViewData["Title"] = "Update Brand";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+}
+
+<div class="container">
+    
+    @using (Html.BeginForm("UpdateBrand", "RepairCategory", FormMethod.Post, new { @class = "w-100" }))
+    {
+    <div class="mb-3">
+            <label for="BrandCode" class="form-label">Brand Code</label>
+            <input type="hidden" class="form-control" value="@Model.Id" name="Id">
+            <input type="text" class="form-control" value="@Model.BrandCode" name="BrandCode">
+    </div>
+
+    <div class="mb-3">
+            <label for="BrandTitle" class="form-label">Brand Title</label>
+            <input type="text" class="form-control" value="@Model.BrandTitle" name="BrandTitle">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    }
+
+</div>
+
+
+
+
+ @section Scripts {
+
+}
+
+
+
+

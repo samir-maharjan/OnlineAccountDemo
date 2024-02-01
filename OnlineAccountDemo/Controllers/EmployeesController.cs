@@ -50,8 +50,64 @@ namespace OnlineAccountDemo.Controllers
         [HttpGet]
         public IActionResult ListEmp()
         {
-            List<Employees> empList = _db.Employees.ToList();
+            List<Employees> empList = _db.Employees.Where(x => x.Status).ToList();
             return View(empList);
+        }
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult UpdateEmp(int? id)
+        {
+
+            Employees? _Employees = _db.Employees.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_Employees);
+        }
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult UpdateEmp(Employees emp)
+        {
+            Employees? _Employees = _db.Employees.Where(x => x.Id == emp.Id)
+              .FirstOrDefault();
+
+            _Employees!.EmpCode = emp.EmpCode;
+            _Employees.EmpName = emp.EmpName;
+            _Employees.EmpDesignation = emp.EmpDesignation;
+            _Employees.UpdatedBy = _ActiveUser.Name;
+            _Employees.UpdatedDate = DateTime.Now;
+            _db.Employees.Update(_Employees);
+            _db.SaveChanges();
+            return RedirectToAction("ListEmp");
+        }
+
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult DeleteEmp(int? id)
+        {
+            Employees? _Employees = _db.Employees.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_Employees);
+        }
+
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult DeleteEmp(Employees emp)
+        {
+            Employees? _Employees = _db.Employees.Where(x => x.Id == emp.Id)
+              .FirstOrDefault();
+
+            _Employees!.Status = false;
+            _Employees.Deleted = true;
+            _Employees.UpdatedBy = _ActiveUser.Name;
+            _Employees.UpdatedDate = DateTime.Now;
+            _db.Employees.Update(_Employees);
+            _db.SaveChanges();
+            return RedirectToAction("ListEmp");
         }
 
     }

@@ -49,8 +49,63 @@ namespace OnlineAccountDemo.Controllers
         [HttpGet]
         public IActionResult ListIssues()
         {
-            List<ModelIssues> issuesList = _db.ModelIssues.ToList();
+            List<ModelIssues> issuesList = _db.ModelIssues.Where(x=>x.Status).ToList();
             return View(issuesList);
+        }
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult UpdateIssue(int? id)
+        {
+
+            ModelIssues? _ModelIssues = _db.ModelIssues.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_ModelIssues);
+        }
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult UpdateIssue(ModelIssues issue)
+        {
+            ModelIssues? _ModelIssues = _db.ModelIssues.Where(x => x.Id == issue.Id)
+              .FirstOrDefault();
+
+            _ModelIssues!.IssueCode = issue.IssueCode;
+            _ModelIssues.IssueTitle = issue.IssueTitle;
+            _ModelIssues.UpdatedBy = _ActiveUser.Name;
+            _ModelIssues.UpdatedDate = DateTime.Now;
+            _db.ModelIssues.Update(_ModelIssues);
+            _db.SaveChanges();
+            return RedirectToAction("ListIssues");
+        }
+
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult DeleteIssue(int? id)
+        {
+            ModelIssues? _ModelIssues = _db.ModelIssues.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_ModelIssues);
+        }
+
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult DeleteIssue(ModelIssues issue)
+        {
+            ModelIssues? _ModelIssues = _db.ModelIssues.Where(x => x.Id == issue.Id)
+              .FirstOrDefault();
+
+            _ModelIssues!.Status = false;
+            _ModelIssues.Deleted = true;
+            _ModelIssues.UpdatedBy = _ActiveUser.Name;
+            _ModelIssues.UpdatedDate = DateTime.Now;
+            _db.ModelIssues.Update(_ModelIssues);
+            _db.SaveChanges();
+            return RedirectToAction("ListIssues");
         }
 
     }

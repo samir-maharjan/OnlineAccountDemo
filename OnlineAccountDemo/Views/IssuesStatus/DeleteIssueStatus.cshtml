@@ -1,0 +1,36 @@
+﻿@model OnlineAccountDemo.Models.JobStatus
+
+@{
+    ViewData["Title"] = "Delete Status";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("DeleteIssueStatus", "IssuesStatus", FormMethod.Post, new { @class = "w-100" }))
+    {
+        <div class="mb-3">
+            <label for="StatusCode" class="form-label">Stauts Code</label>
+            <input type="text" class="form-control" name="StatusCode" value="@Model.StatusCode" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="StatusTitle" class="form-label">Status Title</label>
+            <input type="text" class="form-control" name="StatusTitle" value="@Model.StatusTitle" readonly>
+        </div>
+
+        <button type="submit" class="btn btn-danger">Delete</button>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+
+}
+
+
+
+

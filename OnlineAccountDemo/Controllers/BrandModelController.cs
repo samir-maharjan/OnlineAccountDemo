@@ -42,7 +42,7 @@ namespace OnlineAccountDemo.Controllers
         [HttpGet]
         public IActionResult CreateBrandModel()
         {
-            ViewBag.BrandList = _db.BrandCategory.ToList();
+            ViewBag.BrandList = _db.BrandCategory.Where(x => x.Status).ToList();
             return View();
         }
 
@@ -50,8 +50,64 @@ namespace OnlineAccountDemo.Controllers
         [HttpGet]
         public IActionResult ListBrandModel()
         {
-            List<BrandModel> modelList = _db.BrandModel.Include(x=>x.BrandCategory).ToList();
+            List<BrandModel> modelList = _db.BrandModel.Where(x=>x.Status).Include(x=>x.BrandCategory).ToList();
             return View(modelList);
+        }
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult UpdateModel(int? id)
+        {
+            ViewBag.BrandList = _db.BrandCategory.Where(x=>x.Status).ToList();
+
+            BrandModel? _brandModel = _db.BrandModel.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_brandModel);
+        }
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult UpdateModel(BrandModel brand)
+        {
+            BrandModel? _brandModel = _db.BrandModel.Where(x => x.Id == brand.Id)
+              .FirstOrDefault();
+
+            _brandModel!.ModelCode = brand.ModelCode;
+            _brandModel.ModelTitle = brand.ModelTitle;
+            _brandModel.UpdatedBy = _ActiveUser.Name;
+            _brandModel.UpdatedDate = DateTime.Now;
+            _db.BrandModel.Update(_brandModel);
+            _db.SaveChanges();
+            return RedirectToAction("ListBrandModel");
+        }
+
+
+        [UserAuthorization]
+        [HttpGet]
+        public IActionResult DeleteModel(int? id)
+        {
+            BrandModel? _brandModel = _db.BrandModel.Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(_brandModel);
+        }
+
+
+        [UserAuthorization]
+        [HttpPost]
+        public IActionResult DeleteModel(BrandModel brand)
+        {
+            BrandModel? _brandModel = _db.BrandModel.Where(x => x.Id == brand.Id)
+              .FirstOrDefault();
+
+            _brandModel!.Status = false;
+            _brandModel.Deleted = true;
+            _brandModel.UpdatedBy = _ActiveUser.Name;
+            _brandModel.UpdatedDate = DateTime.Now;
+            _db.BrandModel.Update(_brandModel);
+            _db.SaveChanges();
+            return RedirectToAction("ListBrandModel");
         }
 
     }

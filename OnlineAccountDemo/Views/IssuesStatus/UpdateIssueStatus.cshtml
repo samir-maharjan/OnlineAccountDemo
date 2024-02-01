@@ -1,0 +1,36 @@
+﻿@model OnlineAccountDemo.Models.JobStatus
+
+@{
+    ViewData["Title"] = "Edit Status";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("UpdateIssueStatus", "IssuesStatus", FormMethod.Post, new { @class = "w-100" }))
+    {
+        <div class="mb-3">
+            <label for="StatusCode" class="form-label">Stauts Code</label>
+            <input type="text" class="form-control" name="StatusCode" value="@Model.StatusCode">
+        </div>
+        <div class="mb-3">
+            <label for="StatusTitle" class="form-label">Status Title</label>
+            <input type="text" class="form-control" name="StatusTitle" value="@Model.StatusTitle">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+
+}
+
+
+
+
