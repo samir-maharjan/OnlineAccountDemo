@@ -24,24 +24,48 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRNb2RlbFxDcmVhdGVCcmFuZE1vZGVsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/BrandModel/DeleteModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRNb2RlbFxEZWxldGVNb2RlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/BrandModel/ListBrandModel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRNb2RlbFxMaXN0QnJhbmRNb2RlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/BrandModel/UpdateModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRNb2RlbFxVcGRhdGVNb2RlbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Color/CreateColor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JcQ3JlYXRlQ29sb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Color/DeleteColor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JcRGVsZXRlQ29sb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Color/ListColor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JcTGlzdENvbG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Color/UpdateColor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3JcVXBkYXRlQ29sb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Employees/CreateEmp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXENyZWF0ZUVtcC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Employees/DeleteEmp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXERlbGV0ZUVtcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Employees/ListEmp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXExpc3RFbXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Employees/UpdateEmp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXFVwZGF0ZUVtcC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Error.cshtml]
@@ -60,24 +84,48 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzUHJpY2luZ1xDcmVhdGVQcmljaW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/IssuesPricing/DeletePricing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzUHJpY2luZ1xEZWxldGVQcmljaW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/IssuesPricing/ListIssuesPricing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzUHJpY2luZ1xMaXN0SXNzdWVzUHJpY2luZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/IssuesPricing/UpdatePricing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzUHJpY2luZ1xVcGRhdGVQcmljaW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/IssuesStatus/CreateIssueStatus.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzU3RhdHVzXENyZWF0ZUlzc3VlU3RhdHVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/IssuesStatus/DeleteIssueStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzU3RhdHVzXERlbGV0ZUlzc3VlU3RhdHVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/IssuesStatus/ListIssueStatus.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzU3RhdHVzXExpc3RJc3N1ZVN0YXR1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/IssuesStatus/UpdateIssueStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzU3RhdHVzXFVwZGF0ZUlzc3VlU3RhdHVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Issues/CreateIssues.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzXENyZWF0ZUlzc3Vlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Issues/DeleteIssue.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzXERlbGV0ZUlzc3VlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Issues/ListIssues.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzXExpc3RJc3N1ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Issues/UpdateIssue.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVzXFVwZGF0ZUlzc3VlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Login/Index.cshtml]
@@ -88,6 +136,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQWNjZXNzb3JpZXNcQ3JlYXRlUmVwYWlyVHJhbnNhY3Rpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairAccessories/DeleteRepairTran.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQWNjZXNzb3JpZXNcRGVsZXRlUmVwYWlyVHJhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairAccessories/ListRepairTransaction.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQWNjZXNzb3JpZXNcTGlzdFJlcGFpclRyYW5zYWN0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -96,12 +148,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQWNjZXNzb3JpZXNcUmVwYWlyVHJhbnNhY3Rpb25SZXBvcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairAccessories/UpdateRepairTran.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQWNjZXNzb3JpZXNcVXBkYXRlUmVwYWlyVHJhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairCategory/CreateBrand.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQ2F0ZWdvcnlcQ3JlYXRlQnJhbmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairCategory/DeleteBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQ2F0ZWdvcnlcRGVsZXRlQnJhbmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairCategory/ListBrand.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQ2F0ZWdvcnlcTGlzdEJyYW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/RepairCategory/UpdateBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwYWlyQ2F0ZWdvcnlcVXBkYXRlQnJhbmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/Shared/Error.cshtml]

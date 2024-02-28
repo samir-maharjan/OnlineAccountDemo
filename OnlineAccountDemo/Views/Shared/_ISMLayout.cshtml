@@ -331,6 +331,19 @@
             </li><!-- End Issues Nav -->
 
             <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#pricing-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Pricing</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="pricing-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="@Url.Action("ListIssuesPricing","IssuesPricing")">
+                            <i class="bi bi-circle"></i><span>Pricing List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Issues Nav -->
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#repair-tran-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-menu-button-wide"></i><span>Repairs</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -463,14 +476,15 @@
     </div>
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
+@*    <footer id="footer" class="footer">
         <div class="copyright">
             &copy; Copyright <strong><span>ISM</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             Designed by <a href="https://ism.com.np/">Innovative Smartmandu Pvt. Ltd.</a>
         </div>
-    </footer><!-- End Footer -->
+    </footer>*@
+    <!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
