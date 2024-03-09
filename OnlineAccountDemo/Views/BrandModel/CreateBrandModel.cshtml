@@ -15,7 +15,6 @@
     {
         <div class="mb-3">
             <label for="BrandId" class="form-label">Brand</label>
-            <input type="hidden" class="form-control" value="@Model.Id" name="Id">
             @Html.DropDownList("BrandId", new SelectList(brandList, "Id", "BrandTitle"),"Select Brand",new { @class = "form-control" })
         </div>
         <div class="mb-3">
