@@ -67,6 +67,9 @@ namespace OnlineAccountDemo.Controllers
         [HttpGet]
         public IActionResult UpdatePricing(int? id)
         {
+            ViewBag.ModelList = _db.BrandModel.Where(s => s.Status).ToList();
+            ViewBag.BrandList = _db.BrandCategory.Where(s => s.Status).ToList();
+            ViewBag.IssuesList = _db.ModelIssues.Where(s => s.Status).ToList();
 
             IssuePricing? _IssuePricing = _db.IssuePricing.Where(x => x.Id == id)
                 .FirstOrDefault();
