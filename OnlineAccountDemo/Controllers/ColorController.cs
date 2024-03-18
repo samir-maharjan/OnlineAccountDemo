@@ -72,7 +72,7 @@ namespace OnlineAccountDemo.Controllers
               .FirstOrDefault();
 
             _ModelColor!.ColorCode = color.ColorCode;
-            _ModelColor.ColorTitle = color.ColorCode;
+            _ModelColor.ColorTitle = color.ColorTitle;
             _ModelColor.UpdatedBy = _ActiveUser.Name;
             _ModelColor.UpdatedDate = DateTime.Now;
             _db.ModelColor.Update(_ModelColor);
