@@ -498,9 +498,10 @@ D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\staticwebasset
 D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\scopedcss\bundle\OnlineAccountDemo.styles.css
 D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\scopedcss\projectbundle\OnlineAccountDemo.bundle.scp.css
-D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\OnlineAccountDemo.csproj.CopyComplete
 D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\OnlineAccountDemo.dll
 D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\refint\OnlineAccountDemo.dll
 D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\OnlineAccountDemo.pdb
 D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\OnlineAccountDemo.genruntimeconfig.cache
 D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\ref\OnlineAccountDemo.dll
+D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\OnlineAccountDemo.sourcelink.json
+D:\Projects\Demo\OnlineAccDemo\OnlineAccountDemo\obj\Debug\net7.0\OnlineAc.4E3893CF.Up2Date

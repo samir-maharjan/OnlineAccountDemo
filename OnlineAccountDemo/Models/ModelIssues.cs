@@ -7,6 +7,7 @@ namespace OnlineAccountDemo.Models
     public class ModelIssues
     {
         public ICollection<RepairAccessories> RepairAccessories { get; set; }
+        public ICollection<Inventory> Inventory { get; set; }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

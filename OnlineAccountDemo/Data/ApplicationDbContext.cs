@@ -16,6 +16,7 @@ namespace OnlineAccountDemo.Data
         public DbSet<JobStatus> JobStatus { get; set; }
         public DbSet<RepairAccessories> RepairAccessories { get; set; }
         public DbSet<IssuePricing> IssuePricing { get; set; }
+        public DbSet<Inventory> Inventory { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -24,11 +25,11 @@ namespace OnlineAccountDemo.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-                                modelBuilder.Entity<Users>()
-                        .HasOne(e => e.UsersAccount)
-                        .WithOne(e => e.Users)
-                        .HasForeignKey<UsersAccount>(e => e.UserId)
-                        .IsRequired();
+            modelBuilder.Entity<Users>()
+    .HasOne(e => e.UsersAccount)
+    .WithOne(e => e.Users)
+    .HasForeignKey<UsersAccount>(e => e.UserId)
+    .IsRequired();
 
             modelBuilder.Entity<BrandCategory>()
     .HasMany(e => e.BrandModel)
@@ -42,29 +43,59 @@ namespace OnlineAccountDemo.Data
                         .HasForeignKey(e => e.BrandId)
                         .IsRequired();
 
-                                    modelBuilder.Entity<ModelColor>()
-                        .HasMany(e => e.RepairAccessories)
-                        .WithOne(e => e.ModelColor)
-                        .HasForeignKey(e => e.Colorid)
-                        .IsRequired();
+            modelBuilder.Entity<ModelColor>()
+.HasMany(e => e.RepairAccessories)
+.WithOne(e => e.ModelColor)
+.HasForeignKey(e => e.Colorid)
+.IsRequired();
 
-                                    modelBuilder.Entity<Employees>()
-                        .HasMany(e => e.RepairAccessories)
-                        .WithOne(e => e.Employees)
-                        .HasForeignKey(e => e.EmpId)
-                        .IsRequired();
+            modelBuilder.Entity<Employees>()
+.HasMany(e => e.RepairAccessories)
+.WithOne(e => e.Employees)
+.HasForeignKey(e => e.EmpId)
+.IsRequired();
 
-                                    modelBuilder.Entity<JobStatus>()
-                        .HasMany(e => e.RepairAccessories)
-                        .WithOne(e => e.JobStatus)
-                        .HasForeignKey(e => e.StatusId)
-                        .IsRequired();
+            modelBuilder.Entity<JobStatus>()
+.HasMany(e => e.RepairAccessories)
+.WithOne(e => e.JobStatus)
+.HasForeignKey(e => e.StatusId)
+.IsRequired();
 
-                                    modelBuilder.Entity<ModelIssues>()
-                        .HasMany(e => e.RepairAccessories)
-                        .WithOne(e => e.ModelIssues)
-                        .HasForeignKey(e => e.IssueId)
-                        .IsRequired();
+            modelBuilder.Entity<ModelIssues>()
+.HasMany(e => e.RepairAccessories)
+.WithOne(e => e.ModelIssues)
+.HasForeignKey(e => e.IssueId)
+.IsRequired();
+
+            modelBuilder.Entity<BrandCategory>()
+                       .HasMany(e => e.Inventory)
+                       .WithOne(e => e.BrandCategory)
+                       .HasForeignKey(e => e.BrandId)
+                       .IsRequired();
+
+            modelBuilder.Entity<ModelColor>()
+.HasMany(e => e.Inventory)
+.WithOne(e => e.ModelColor)
+.HasForeignKey(e => e.Colorid)
+.IsRequired();
+
+            modelBuilder.Entity<Employees>()
+.HasMany(e => e.Inventory)
+.WithOne(e => e.Employees)
+.HasForeignKey(e => e.EmpId)
+.IsRequired();
+
+            modelBuilder.Entity<JobStatus>()
+.HasMany(e => e.Inventory)
+.WithOne(e => e.JobStatus)
+.HasForeignKey(e => e.StatusId)
+.IsRequired();
+
+            modelBuilder.Entity<ModelIssues>()
+.HasMany(e => e.Inventory)
+.WithOne(e => e.ModelIssues)
+.HasForeignKey(e => e.IssueId)
+.IsRequired();
 
         }
 

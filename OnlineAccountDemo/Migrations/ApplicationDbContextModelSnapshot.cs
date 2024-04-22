@@ -154,6 +154,77 @@ namespace OnlineAccountDemo.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("OnlineAccountDemo.Models.Inventory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BatteryPercent")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BrandId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Colorid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("EmpId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IMEINumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IssueId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ModelId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
+
+                    b.HasIndex("Colorid");
+
+                    b.HasIndex("EmpId");
+
+                    b.HasIndex("IssueId");
+
+                    b.HasIndex("StatusId");
+
+                    b.ToTable("Inventory");
+                });
+
             modelBuilder.Entity("OnlineAccountDemo.Models.IssuePricing", b =>
                 {
                     b.Property<int>("Id")
@@ -483,6 +554,49 @@ namespace OnlineAccountDemo.Migrations
                     b.Navigation("BrandCategory");
                 });
 
+            modelBuilder.Entity("OnlineAccountDemo.Models.Inventory", b =>
+                {
+                    b.HasOne("OnlineAccountDemo.Models.BrandCategory", "BrandCategory")
+                        .WithMany("Inventory")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnlineAccountDemo.Models.ModelColor", "ModelColor")
+                        .WithMany("Inventory")
+                        .HasForeignKey("Colorid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnlineAccountDemo.Models.Employees", "Employees")
+                        .WithMany("Inventory")
+                        .HasForeignKey("EmpId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnlineAccountDemo.Models.ModelIssues", "ModelIssues")
+                        .WithMany("Inventory")
+                        .HasForeignKey("IssueId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnlineAccountDemo.Models.JobStatus", "JobStatus")
+                        .WithMany("Inventory")
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BrandCategory");
+
+                    b.Navigation("Employees");
+
+                    b.Navigation("JobStatus");
+
+                    b.Navigation("ModelColor");
+
+                    b.Navigation("ModelIssues");
+                });
+
             modelBuilder.Entity("OnlineAccountDemo.Models.RepairAccessories", b =>
                 {
                     b.HasOne("OnlineAccountDemo.Models.BrandCategory", "BrandCategory")
@@ -541,26 +655,36 @@ namespace OnlineAccountDemo.Migrations
                 {
                     b.Navigation("BrandModel");
 
+                    b.Navigation("Inventory");
+
                     b.Navigation("RepairAccessories");
                 });
 
             modelBuilder.Entity("OnlineAccountDemo.Models.Employees", b =>
                 {
+                    b.Navigation("Inventory");
+
                     b.Navigation("RepairAccessories");
                 });
 
             modelBuilder.Entity("OnlineAccountDemo.Models.JobStatus", b =>
                 {
+                    b.Navigation("Inventory");
+
                     b.Navigation("RepairAccessories");
                 });
 
             modelBuilder.Entity("OnlineAccountDemo.Models.ModelColor", b =>
                 {
+                    b.Navigation("Inventory");
+
                     b.Navigation("RepairAccessories");
                 });
 
             modelBuilder.Entity("OnlineAccountDemo.Models.ModelIssues", b =>
                 {
+                    b.Navigation("Inventory");
+
                     b.Navigation("RepairAccessories");
                 });
 

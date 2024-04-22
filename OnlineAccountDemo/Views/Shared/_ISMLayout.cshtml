@@ -364,8 +364,26 @@
                         </a>
                     </li>
                 </ul>
-            </li><!-- End Brands Nav -->
+            </li><!-- End RepairAccessories Nav -->
 
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#inventory-tran-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Inventories</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="inventory-tran-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="@Url.Action("ListInventory","Inventory")">
+                            <i class="bi bi-circle"></i><span>Inventory List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("InventoryReport","Inventory")">
+                            <i class="bi bi-circle"></i><span>Inventory Report(MIS)</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End RepairAccessories Nav -->
             <li class="nav-heading">Pages</li>
         </ul>
 

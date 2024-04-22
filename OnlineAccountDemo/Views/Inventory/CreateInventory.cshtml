@@ -1,0 +1,77 @@
+﻿@using OnlineAccountDemo.Models;
+
+@{
+    ViewData["Title"] = "Add Inventory";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+    var employeesList = ViewBag.EmployeesList as List<Employees>;
+    var issuesList = ViewBag.IssuesList as List<ModelIssues>;
+    var colorList = ViewBag.ModelColor as List<ModelColor>;
+    var brandList = ViewBag.BrandList as List<BrandCategory>;
+    var modelList = ViewBag.ModelList as List<BrandModel>;
+    var statusList = ViewBag.StatusList as List<JobStatus>; 
+    var priceList = ViewBag.PriceList as List<IssuePricing>; 
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("CreateInventory", "Inventory", FormMethod.Post, new { @class = "w-50" }))
+    {
+        <div class="mb-3">
+            <label for="BrandId" class="form-label">Brand</label>
+            @Html.DropDownList("BrandId", new SelectList(brandList, "Id", "BrandTitle"),"Select Brand",new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="ModelId" class="form-label">Model</label>
+            @Html.DropDownList("ModelId", new SelectList(modelList, "Id", "ModelTitle"),"Select Model",new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="BrandCode" class="form-label">IEMI Number</label>
+            <input type="text" class="form-control" name="IMEINumber" placeholder="Enter IMEI Number">
+        </div>
+
+        <div class="mb-3">
+            <label for="Colorid" class="form-label">Color</label>
+            @Html.DropDownList("Colorid", new SelectList(colorList, "Id", "ColorTitle"),"Select Color",new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            <label for="BrandCode" class="form-label">Battery %</label>
+            <input type="number" class="form-control" name="BatteryPercent" placeholder="">
+        </div>
+
+        <div class="mb-3">
+            <label for="BrandCode" class="form-label">Issues</label>
+            @Html.DropDownList("IssueId", new SelectList(issuesList, "Id", "IssueTitle"),"Select Issue",new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            <label for="EmpId" class="form-label">Employee</label>
+            @Html.DropDownList("EmpId", new SelectList(employeesList, "Id", "EmpName"),"Select Employee",new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            <label for="EmpId" class="form-label">Status</label>
+            @Html.DropDownList("StatusId", new SelectList(statusList, "Id", "StatusTitle"),"Select Status",new { @class = "form-control" })
+        </div>
+
+@*        <div class="mb-3">
+            <label for="BrandCode" class="form-label">Price</label>
+            <input type="number" class="form-control" name="Price" placeholder="">
+        </div>
+*@
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+
+}
+
+
+
+

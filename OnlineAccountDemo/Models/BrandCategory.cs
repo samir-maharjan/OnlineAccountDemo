@@ -8,6 +8,7 @@ namespace OnlineAccountDemo.Models
     {
         public ICollection<BrandModel> BrandModel { get; set; }
         public ICollection<RepairAccessories> RepairAccessories { get; set; }
+        public ICollection<Inventory> Inventory { get; set; }
 
 
         [Key]
