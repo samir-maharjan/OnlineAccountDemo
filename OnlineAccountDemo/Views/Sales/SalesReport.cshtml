@@ -1,0 +1,60 @@
+﻿@model IEnumerable<OnlineAccountDemo.Models.Sales>
+@using OnlineAccountDemo.Models;
+
+@{
+    ViewData["Title"] = "Sales Report";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+    var brandModelList = ViewBag.ModelList as List<BrandModel>;
+    var _issuesList = ViewBag.IssuesList as List<ModelIssues>;
+}
+
+
+
+<div class="container">
+   @*  <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.GroupBy(x => x.BrandId))
+            {
+                <tr>
+                    <td colspan="4"><h3>@item.Select(x=>x.BrandCategory.BrandTitle).FirstOrDefault() </h3></td>
+
+                </tr>
+                foreach (var _issues in item.GroupBy(x => x.IssueId))
+                {
+                    <tr>
+                        <td>
+                            <h4><span class="badge bg-success">@_issuesList!.Where(x=>x.Id==_issues.Key).Select(x=>x.IssueTitle).FirstOrDefault()</span></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Model</th>
+                        <th>Quantity</th>
+                    </tr>
+
+                    foreach (var _models in _issues.GroupBy(x => x.ModelId))
+                    {
+
+                        var _count = (decimal)_models.Where(x => x.IssueId == _issues.Key).Count();
+                        <tr>
+                            <td>@brandModelList!.Where(x=>x.Id==_models.Key).Select(x=>x.ModelTitle).FirstOrDefault()</td>
+                        </tr>
+                    }
+                }
+
+            }
+        </tbody>
+    </table> *@
+</div>
+
+@section Scripts {
+
+}
+

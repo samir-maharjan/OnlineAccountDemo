@@ -398,8 +398,27 @@
                         </a>
                     </li>
                 </ul>
-            </li><!-- End RepairAccessories Nav -->
+            </li><!-- End Inventory Nav -->
             <li class="nav-heading">Pages</li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#sales-tran-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Sales</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="sales-tran-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="@Url.Action("ListSales","Sales")">
+                            <i class="bi bi-circle"></i><span>Sales List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("SalesReport","Sales")">
+                            <i class="bi bi-circle"></i><span>Sales Report(MIS)</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Sales Nav -->
+
         </ul>
 
     </aside><!-- End Sidebar-->

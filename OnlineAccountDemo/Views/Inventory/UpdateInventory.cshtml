@@ -51,7 +51,10 @@
             <label for="EmpId" class="form-label">Employee</label>
             @Html.DropDownList("EmpId", new SelectList(employeesList, "Id", "EmpName",selectedEmpId),"Select Employee",new { @class = "form-control" })
         </div>
-
+        <div class="mb-3">
+            <label for="Remarks" class="form-label">Remarks</label>
+            <textarea class="form-control" style="height: 100px" name="Remarks" value="@Model.Remarks">@Model.Remarks</textarea>
+        </div>
 
 @*        <div class="mb-3">
             <label for="BrandCode" class="form-label">Price</label>

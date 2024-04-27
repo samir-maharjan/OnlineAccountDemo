@@ -1,0 +1,89 @@
+﻿@using OnlineAccountDemo.Models;
+
+@{
+    ViewData["Title"] = "Add Sales";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+    var employeesList = ViewBag.EmployeesList as List<Employees>;
+    var issuesList = ViewBag.IssuesList as List<ModelIssues>;
+    var colorList = ViewBag.ModelColor as List<ModelColor>;
+    var storageList = ViewBag.StorageList as List<StorageCapacity>;
+    var brandList = ViewBag.BrandList as List<BrandCategory>;
+    var modelList = ViewBag.ModelList as List<BrandModel>;
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("CreateSales", "Sales", FormMethod.Post, new { @class = "w-50" }))
+    {
+
+        <div class="mb-3">
+            <label for="InvoiceNum" class="form-label">Invoice Number</label>
+            <input type="text" class="form-control" name="InvoiceNum" placeholder="Enter Invoice Number">
+        </div>
+        <div class="mb-3">
+            <label for="BrandId" class="form-label">Brand</label>
+            @Html.DropDownList("BrandId", new SelectList(brandList, "Id", "BrandTitle"),"Select Brand",new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            <label for="ModelId" class="form-label">Model</label>
+            @Html.DropDownList("ModelId", new SelectList(modelList, "Id", "ModelTitle"),"Select Model",new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="IMEINumber" class="form-label">IEMI Number</label>
+            <input type="text" class="form-control" name="IMEINumber" placeholder="Enter IMEI Number">
+        </div>
+        <div class="mb-3">
+            <label for="StorageId" class="form-label">Storage</label>
+            @Html.DropDownList("StorageId", new SelectList(storageList, "Id", "StorageTitle"), "Select Storage", new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="Colorid" class="form-label">Color</label>
+            @Html.DropDownList("Colorid", new SelectList(colorList, "Id", "ColorTitle"),"Select Color",new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label for="Quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" name="Quantity" placeholder="Enter Quantity">
+        </div>
+        <div class="mb-3">
+            <label for="Rate" class="form-label">Rate</label>
+            <input type="number" class="form-control" name="Rate" placeholder="Enter Rate">
+        </div>
+        <div class="mb-3">
+            <label for="Total" class="form-label">Total</label>
+            <input type="number" class="form-control" name="Total" placeholder="Enter Total">
+        </div>
+        <div class="mb-3">
+            <label for="PaymentMode" class="form-label">Payment Mode</label>
+            <input type="text" class="form-control" name="PaymentMode" placeholder="Enter Payment Mode">
+        </div>
+        <div class="mb-3">
+            <label for="EmpId" class="form-label">Sold By</label>
+            @Html.DropDownList("EmpId", new SelectList(employeesList, "Id", "EmpName"),"Select Employee",new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            <label for="Remarks" class="form-label">Remarks</label>
+            <textarea class="form-control" style="height: 100px" name="Remarks"></textarea>
+        </div>
+@*        <div class="mb-3">
+            <label for="BrandCode" class="form-label">Price</label>
+            <input type="number" class="form-control" name="Price" placeholder="">
+        </div>
+*@
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+
+}
+
+
+
+

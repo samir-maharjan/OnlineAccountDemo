@@ -1,0 +1,69 @@
+﻿@model IEnumerable<OnlineAccountDemo.Models.Sales>
+@using OnlineAccountDemo.Models;
+
+@{
+    ViewData["Title"] = "List Sales";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+    var brandModelList = ViewBag.ModelList as List<BrandModel>;
+}
+
+
+<div class="container">
+    <a href="@Url.Action("CreateSales","Sales")" class="btn btn-outline-success btn-lg bx-pull-right"><i class="bx bx-plus-medical"></i></a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Model</th>
+                <th scope="col">IMEI Number</th>
+                <th scope="col">Color</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Employee</th>
+                <th scope="col">Remarks</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var _brands in Model.GroupBy(x => x.BrandId))
+            {
+                <tr>
+                    <td colspan="9"><h4><span class="badge bg-dark">@_brands.Select(x=>x.BrandCategory.BrandTitle).FirstOrDefault()</span></h4></td>
+                </tr>
+
+                @*                foreach (var _models in item.GroupBy(x => x.ModelId))
+            {*@
+                foreach (var item in _brands.OrderBy(x => x.ModelId))
+                {
+                    <tr>
+                        <td>@brandModelList!.Where(x => x.Id == item.ModelId).Select(x => x.ModelTitle).FirstOrDefault()</td>
+                        <td>@item.IMEINumber</td>
+                        <td>@item.ModelColor.ColorTitle</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Employees.EmpName</td>
+                        <td>@item.Remarks</td>
+                        <td>
+                            <a class="btn btn-outline-primary btn-sm" href="@Url.Action("UpdateSales", new { id=item.Id})"><i class="bi bi-box-arrow-up"></i></a>
+                            <a class="btn btn-outline-danger btn-sm" href="@Url.Action("DeleteSales", new { id=item.Id})"><i class="bx bx-minus-circle"></i></a>
+                        </td>
+                    </tr>
+                }
+
+                @*   }*@
+
+
+
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts {
+
+}
+
+
+
+

@@ -8,7 +8,8 @@ namespace OnlineAccountDemo.Models
     {
         public ICollection<RepairAccessories> RepairAccessories { get; set; }
         public ICollection<Inventory> Inventory { get; set; }
-
+        public ICollection<Sales> Sales { get; set; }
+        
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

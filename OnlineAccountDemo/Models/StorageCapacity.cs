@@ -7,7 +7,8 @@ namespace OnlineAccountDemo.Models
     public class StorageCapacity
     {
         public ICollection<Inventory> Inventory { get; set; }
-
+        public ICollection<Sales> Sales { get; set; }
+        
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -18,7 +18,8 @@ namespace OnlineAccountDemo.Data
         public DbSet<IssuePricing> IssuePricing { get; set; }
         public DbSet<Inventory> Inventory { get; set; }
         public DbSet<StorageCapacity> StorageCapacity { get; set; }
-        
+        public DbSet<Sales> Sales { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
@@ -94,6 +95,31 @@ namespace OnlineAccountDemo.Data
 
             modelBuilder.Entity<StorageCapacity>()
 .HasMany(e => e.Inventory)
+.WithOne(e => e.StorageCapacity)
+.HasForeignKey(e => e.StorageId)
+.IsRequired();
+
+
+            modelBuilder.Entity<BrandCategory>()
+                       .HasMany(e => e.Sales)
+                       .WithOne(e => e.BrandCategory)
+                       .HasForeignKey(e => e.BrandId)
+                       .IsRequired();
+
+            modelBuilder.Entity<ModelColor>()
+.HasMany(e => e.Sales)
+.WithOne(e => e.ModelColor)
+.HasForeignKey(e => e.Colorid)
+.IsRequired();
+
+            modelBuilder.Entity<Employees>()
+.HasMany(e => e.Sales)
+.WithOne(e => e.Employees)
+.HasForeignKey(e => e.EmpId)
+.IsRequired();
+
+            modelBuilder.Entity<StorageCapacity>()
+.HasMany(e => e.Sales)
 .WithOne(e => e.StorageCapacity)
 .HasForeignKey(e => e.StorageId)
 .IsRequired();

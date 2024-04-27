@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineAccountDemo.Data;
 
@@ -11,9 +12,11 @@ using OnlineAccountDemo.Data;
 namespace OnlineAccountDemo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240427165106_AddedTableSales")]
+    partial class AddedTableSales
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -501,10 +504,10 @@ namespace OnlineAccountDemo.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ModelId")
+                    b.Property<int>("IssueId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ModelIssuesId")
+                    b.Property<int>("ModelId")
                         .HasColumnType("int");
 
                     b.Property<string>("PaymentMode")
@@ -545,7 +548,7 @@ namespace OnlineAccountDemo.Migrations
 
                     b.HasIndex("EmpId");
 
-                    b.HasIndex("ModelIssuesId");
+                    b.HasIndex("IssueId");
 
                     b.HasIndex("StorageId");
 
@@ -785,9 +788,11 @@ namespace OnlineAccountDemo.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OnlineAccountDemo.Models.ModelIssues", null)
+                    b.HasOne("OnlineAccountDemo.Models.ModelIssues", "ModelIssues")
                         .WithMany("Sales")
-                        .HasForeignKey("ModelIssuesId");
+                        .HasForeignKey("IssueId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("OnlineAccountDemo.Models.StorageCapacity", "StorageCapacity")
                         .WithMany("Sales")
@@ -800,6 +805,8 @@ namespace OnlineAccountDemo.Migrations
                     b.Navigation("Employees");
 
                     b.Navigation("ModelColor");
+
+                    b.Navigation("ModelIssues");
 
                     b.Navigation("StorageCapacity");
                 });
