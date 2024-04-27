@@ -33,9 +33,9 @@ namespace OnlineAccountDemo.Controllers
             _repair.EmpId = model_.EmpId;
             _repair.StatusId = model_.StatusId;
             _repair.IMEINumber = model_.IMEINumber;
-            _repair.BatteryPercent = model_.BatteryPercent;
-            var _Price = _db.IssuePricing.Where(x => x.IssueBrandId == model_.BrandId && x.IssueModelId == model_.ModelId && x.IssuesId == model_.IssueId).Select(x => x.IssuePrice).FirstOrDefault();
-            _repair.Price = _Price == null ? 0 : _Price;
+            _repair.Remarks = model_.Remarks;
+            /*            var _Price = _db.IssuePricing.Where(x => x.IssueBrandId == model_.BrandId && x.IssueModelId == model_.ModelId && x.IssuesId == model_.IssueId).Select(x => x.IssuePrice).FirstOrDefault();
+                        _repair.Price = _Price == null ? 0 : _Price;*/
             _repair.Status = true;
             _repair.Deleted = false;
             _repair.CreatedBy = _ActiveUser.Name;
@@ -56,7 +56,6 @@ namespace OnlineAccountDemo.Controllers
             ViewBag.BrandList = _db.BrandCategory.Where(s => s.Status).ToList();
             ViewBag.ModelList = _db.BrandModel.Where(s => s.Status).ToList();
             ViewBag.StatusList = _db.JobStatus.Where(s => s.Status).ToList();
-            ViewBag.PriceList = _db.IssuePricing.Where(s => s.Status).ToList();
             return View();
         }
 
@@ -66,7 +65,7 @@ namespace OnlineAccountDemo.Controllers
         {
             // List<RepairAccessories> empList = _db.RepairAccessories.ToList();
             ViewBag.ModelList = _db.BrandModel.ToList();
-            List<RepairAccessories> empList = _db.RepairAccessories
+            List<RepairAccessories> empList = _db.RepairAccessories.Where(x=>x.Status && !x.Deleted)
     .Include(ra => ra.BrandCategory)
     .Include(ra => ra.ModelColor)
     .Include(ra => ra.ModelIssues)
@@ -108,8 +107,6 @@ namespace OnlineAccountDemo.Controllers
             ViewBag.BrandList = _db.BrandCategory.Where(s => s.Status).ToList();
             ViewBag.ModelList = _db.BrandModel.Where(s => s.Status).ToList();
             ViewBag.StatusList = _db.JobStatus.Where(s => s.Status).ToList();
-            ViewBag.PriceList = _db.IssuePricing.Where(s => s.Status).ToList();
-
 
             RepairAccessories? _RepairAccessories = _db.RepairAccessories.Where(x => x.Id == id)
                 .FirstOrDefault();
@@ -131,9 +128,9 @@ namespace OnlineAccountDemo.Controllers
             _RepairAccessories.EmpId = _tran.EmpId;
             _RepairAccessories.StatusId = _tran.StatusId;
             _RepairAccessories.IMEINumber = _tran.IMEINumber;
-            _RepairAccessories.BatteryPercent = _tran.BatteryPercent;
-            var _Price = _db.IssuePricing.Where(x => x.IssueBrandId == _tran.BrandId && x.IssueModelId == _tran.ModelId && x.IssuesId == _tran.IssueId).Select(x => x.IssuePrice).FirstOrDefault();
-            _tran.Price = _Price == null ? 0 : _Price;
+            _RepairAccessories.Remarks = _tran.Remarks;
+            /*            var _Price = _db.IssuePricing.Where(x => x.IssueBrandId == _tran.BrandId && x.IssueModelId == _tran.ModelId && x.IssuesId == _tran.IssueId).Select(x => x.IssuePrice).FirstOrDefault();
+                        _tran.Price = _Price == null ? 0 : _Price;*/
             _RepairAccessories.UpdatedBy = _ActiveUser.Name;
             _RepairAccessories.UpdatedDate = DateTime.Now;
             _db.RepairAccessories.Update(_RepairAccessories);
@@ -152,7 +149,6 @@ namespace OnlineAccountDemo.Controllers
             ViewBag.BrandList = _db.BrandCategory.Where(s => s.Status).ToList();
             ViewBag.ModelList = _db.BrandModel.Where(s => s.Status).ToList();
             ViewBag.StatusList = _db.JobStatus.Where(s => s.Status).ToList();
-            ViewBag.PriceList = _db.IssuePricing.Where(s => s.Status).ToList();
             //todo: Have to implement INITCOMMON For ViewBag LISTS
             RepairAccessories? _RepairAccessories = _db.RepairAccessories.Where(x => x.Id == id)
                 .FirstOrDefault();

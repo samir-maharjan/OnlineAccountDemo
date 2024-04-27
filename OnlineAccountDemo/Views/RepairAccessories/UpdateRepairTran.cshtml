@@ -18,7 +18,6 @@
     var brandList = ViewBag.BrandList as List<BrandCategory>;
     var modelList = ViewBag.ModelList as List<BrandModel>;
     var statusList = ViewBag.StatusList as List<JobStatus>; 
-    var priceList = ViewBag.PriceList as List<IssuePricing>; 
 }
 
 <div class="container">
@@ -44,11 +43,6 @@
         </div>
 
         <div class="mb-3">
-            <label for="BrandCode" class="form-label">Battery %</label>
-            <input type="number" class="form-control" name="BatteryPercent" value="@Model.BatteryPercent" placeholder="">
-        </div>
-
-        <div class="mb-3">
             <label for="BrandCode" class="form-label">Issues</label>
             @Html.DropDownList("IssueId", new SelectList(issuesList, "Id", "IssueTitle",selectedIssueId),"Select Issue",new { @class = "form-control" })
         </div>
@@ -62,7 +56,10 @@
             <label for="EmpId" class="form-label">Status</label>
             @Html.DropDownList("StatusId", new SelectList(statusList, "Id", "StatusTitle",selectedStatusId),"Select Status",new { @class = "form-control" })
         </div>
-
+        <div class="mb-3">
+            <label for="EmpId" class="form-label">Remarks</label>
+            <textarea class="form-control" style="height: 100px" name="Remarks" value="@Model.IMEINumber"></textarea>
+        </div>
 @*        <div class="mb-3">
             <label for="BrandCode" class="form-label">Price</label>
             <input type="number" class="form-control" name="Price" placeholder="">

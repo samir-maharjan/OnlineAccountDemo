@@ -30,12 +30,13 @@ namespace OnlineAccountDemo.Models
         public int StatusId { get; set; }
         [Required]
         public int IssueId { get; set; }
-        [Required]
-        public int BatteryPercent { get; set; }
+
         [Required]
         public string IMEINumber { get; set; }
         [Required]
-        public double Price { get; set; }
+        public string Remarks { get; set; }
+/*        [Required]
+        public double Price { get; set; }*/
         public bool Deleted { get; set; } = false;
         public bool Status { get; set; } = true;
         public string CreatedBy { get; set; }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineAccountDemo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03a5630c0eaa6e37e13d7d3b071c52dbae3087c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1540f94eef7d6b14bd09e366708e887d59f32069")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineAccountDemo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineAccountDemo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
