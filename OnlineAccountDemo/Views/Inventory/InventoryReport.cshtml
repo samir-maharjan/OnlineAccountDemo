@@ -7,8 +7,6 @@
 
     var brandModelList = ViewBag.ModelList as List<BrandModel>;
     var _issuesList = ViewBag.IssuesList as List<ModelIssues>;
-    var _pricingList = ViewBag.PricingList as List<IssuePricing>;
-
 }
 
 
@@ -25,8 +23,6 @@
 
             @foreach (var item in Model.GroupBy(x => x.BrandId))
             {
-                decimal _grandtotal = 0;
-
                 <tr>
                     <td colspan="4"><h3>@item.Select(x=>x.BrandCategory.BrandTitle).FirstOrDefault() </h3></td>
 
@@ -41,29 +37,16 @@
                     <tr>
                         <th>Model</th>
                         <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Amount</th>
                     </tr>
 
                     foreach (var _models in _issues.GroupBy(x => x.ModelId))
                     {
 
                         var _count = (decimal)_models.Where(x => x.IssueId == _issues.Key).Count();
-                        var issue_price = _pricingList.Where(x => x.IssuesId == _issues.Key && x.IssueBrandId == item.Key && x.IssueModelId == _models.Key).Select(x => x.IssuePrice).FirstOrDefault();
-                        var _price = issue_price == null ? 0 : issue_price;
-                        var amt = (decimal)_price * _count;
                         <tr>
                             <td>@brandModelList!.Where(x=>x.Id==_models.Key).Select(x=>x.ModelTitle).FirstOrDefault()</td>
-                            <td>@_count</td>
-                            <td>@_price</td>
-                            <td>@amt</td>
                         </tr>
-                        _grandtotal += amt;
                     }
-                    <tr>
-                        <td colspan="3">Grand Total</td>
-                        <td>@_grandtotal</td>
-                    </tr>
                 }
 
             }

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<OnlineAccountDemo.Models.StorageCapacity>
+
+@{
+    ViewData["Title"] = "Device Storage List";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+}
+
+
+<div class="container">
+    <a href="@Url.Action("CreateStorageCapacity","StorageCapacity")" class="btn btn-outline-success btn-lg bx-pull-right"><i class="bx bx-plus-medical"></i></a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.StorageTitle</td>
+                    <td>@item.Status</td>
+                    <td>
+                        <a class="btn btn-outline-primary btn-sm" href="@Url.Action("UpdateStorageCapacity", new { id=item.Id})"><i class="bi bi-box-arrow-up"></i></a>
+                        <a class="btn btn-outline-danger btn-sm" href="@Url.Action("DeleteStorageCapacity", new { id=item.Id})"><i class="bx bx-minus-circle"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts {
+
+}
+
+
+
+

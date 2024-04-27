@@ -312,6 +312,8 @@
                 </ul>
             </li><!-- End Models Nav -->
 
+
+
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#issues-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-layout-text-window-reverse"></i><span>Repair Issues</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -346,7 +348,20 @@
                         </a>
                     </li>
                 </ul>
-            </li><!-- End Issues Nav -->
+            </li><!-- End Price Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#storage-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Device Storage</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="storage-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="@Url.Action("ListStorageCapacity","StorageCapacity")">
+                            <i class="bi bi-circle"></i><span>Device Storage List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Price Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#repair-tran-nav" data-bs-toggle="collapse" href="#">

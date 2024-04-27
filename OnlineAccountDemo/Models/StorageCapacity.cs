@@ -4,17 +4,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OnlineAccountDemo.Models
 
 {
-    public class JobStatus
+    public class StorageCapacity
     {
-        public ICollection<RepairAccessories> RepairAccessories { get; set; }
+        public ICollection<Inventory> Inventory { get; set; }
+
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required]
-        public string StatusTitle { get; set; }
-        [Required]
-        public string StatusCode { get; set; }
+        public string StorageTitle { get; set; }
+
+/*        [Required]
+        public string StorageCode { get; set; }
+We can place it later on to select brand as a Storage code
+ */
         public bool Deleted { get; set; } = false;
         public bool Status { get; set; } = true;
         public string CreatedBy { get; set; }
@@ -22,10 +27,5 @@ namespace OnlineAccountDemo.Models
 
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
-
-
-
     }
-
-
 }

@@ -206,6 +206,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/StorageCapacity/CreateStorageCapacity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmFnZUNhcGFjaXR5XENyZWF0ZVN0b3JhZ2VDYXBhY2l0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/StorageCapacity/DeleteStorageCapacity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmFnZUNhcGFjaXR5XERlbGV0ZVN0b3JhZ2VDYXBhY2l0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/StorageCapacity/ListStorageCapacity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmFnZUNhcGFjaXR5XExpc3RTdG9yYWdlQ2FwYWNpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/StorageCapacity/UpdateStorageCapacity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmFnZUNhcGFjaXR5XFVwZGF0ZVN0b3JhZ2VDYXBhY2l0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Demo/OnlineAccDemo/OnlineAccountDemo/Views/UserAccountDetails/accDeposit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckFjY291bnREZXRhaWxzXGFjY0RlcG9zaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

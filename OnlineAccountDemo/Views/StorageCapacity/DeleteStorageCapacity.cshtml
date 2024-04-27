@@ -1,0 +1,32 @@
+﻿@model OnlineAccountDemo.Models.StorageCapacity
+
+@{
+    ViewData["Title"] = "Delete Device Storage";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("DeleteStorageCapacity", "StorageCapacity", FormMethod.Post, new { @class = "w-100" }))
+    {
+        <div class="mb-3">
+            <label for="StorageTitle" class="form-label">Title</label>
+            <input type="text" class="form-control" name="StorageTitle" value="@Model.StorageTitle" readonly>
+        </div>
+
+        <button type="submit" class="btn btn-danger">Delete</button>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+
+}
+
+
+
+

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineAccountDemo.Data;
 
@@ -11,9 +12,11 @@ using OnlineAccountDemo.Data;
 namespace OnlineAccountDemo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240427061943_AddedTableStorageCapacityandUpdatedTableInventory")]
+    partial class AddedTableStorageCapacityandUpdatedTableInventory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,8 +165,8 @@ namespace OnlineAccountDemo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<double>("BatteryPercent")
-                        .HasColumnType("float");
+                    b.Property<int>("BatteryPercent")
+                        .HasColumnType("int");
 
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
@@ -191,10 +194,10 @@ namespace OnlineAccountDemo.Migrations
                     b.Property<int>("IssueId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ModelId")
+                    b.Property<int>("JobStatusId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int>("ModelId")
                         .HasColumnType("int");
 
                     b.Property<string>("Remarks")
@@ -223,6 +226,8 @@ namespace OnlineAccountDemo.Migrations
                     b.HasIndex("EmpId");
 
                     b.HasIndex("IssueId");
+
+                    b.HasIndex("JobStatusId");
 
                     b.HasIndex("StorageId");
 
@@ -621,6 +626,12 @@ namespace OnlineAccountDemo.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("OnlineAccountDemo.Models.JobStatus", "JobStatus")
+                        .WithMany()
+                        .HasForeignKey("JobStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("OnlineAccountDemo.Models.StorageCapacity", "StorageCapacity")
                         .WithMany("Inventory")
                         .HasForeignKey("StorageId")
@@ -630,6 +641,8 @@ namespace OnlineAccountDemo.Migrations
                     b.Navigation("BrandCategory");
 
                     b.Navigation("Employees");
+
+                    b.Navigation("JobStatus");
 
                     b.Navigation("ModelColor");
 

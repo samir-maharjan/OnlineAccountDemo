@@ -17,7 +17,8 @@ namespace OnlineAccountDemo.Data
         public DbSet<RepairAccessories> RepairAccessories { get; set; }
         public DbSet<IssuePricing> IssuePricing { get; set; }
         public DbSet<Inventory> Inventory { get; set; }
-
+        public DbSet<StorageCapacity> StorageCapacity { get; set; }
+        
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
@@ -85,16 +86,16 @@ namespace OnlineAccountDemo.Data
 .HasForeignKey(e => e.EmpId)
 .IsRequired();
 
-            modelBuilder.Entity<JobStatus>()
-.HasMany(e => e.Inventory)
-.WithOne(e => e.JobStatus)
-.HasForeignKey(e => e.StatusId)
-.IsRequired();
-
             modelBuilder.Entity<ModelIssues>()
 .HasMany(e => e.Inventory)
 .WithOne(e => e.ModelIssues)
 .HasForeignKey(e => e.IssueId)
+.IsRequired();
+
+            modelBuilder.Entity<StorageCapacity>()
+.HasMany(e => e.Inventory)
+.WithOne(e => e.StorageCapacity)
+.HasForeignKey(e => e.StorageId)
 .IsRequired();
 
         }

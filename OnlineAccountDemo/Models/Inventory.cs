@@ -18,7 +18,6 @@ namespace OnlineAccountDemo.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-
         [Required]
         public int BrandId { get; set; }
         [Required]
@@ -27,16 +26,20 @@ namespace OnlineAccountDemo.Models
         public int Colorid { get; set; }
         [Required]
         public int EmpId { get; set; }
-        [Required]
-        public int StatusId { get; set; }
+
         [Required]
         public int IssueId { get; set; }
+
         [Required]
-        public int BatteryPercent { get; set; }
+        public int StorageId { get; set; }
+        [Required]
+        public double BatteryPercent { get; set; }
+        [Required]
+        public int Quantity { get; set; }
         [Required]
         public string IMEINumber { get; set; }
         [Required]
-        public double Price { get; set; }
+        public string Remarks { get; set; }
         public bool Deleted { get; set; } = false;
         public bool Status { get; set; } = true;
         public string CreatedBy { get; set; }
@@ -48,8 +51,8 @@ namespace OnlineAccountDemo.Models
         public BrandCategory BrandCategory { get; set; }
         public ModelColor ModelColor { get; set; }
         public Employees Employees { get; set; }
-        public JobStatus JobStatus { get; set; }
         public ModelIssues ModelIssues { get; set; }
+        public StorageCapacity StorageCapacity { get; set; }
 
 
     }

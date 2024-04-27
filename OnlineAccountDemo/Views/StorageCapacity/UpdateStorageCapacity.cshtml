@@ -1,0 +1,33 @@
+﻿@model OnlineAccountDemo.Models.StorageCapacity
+
+@{
+    ViewData["Title"] = "Edit Device Storage";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("UpdateStorageCapacity", "StorageCapacity", FormMethod.Post, new { @class = "w-100" }))
+    {
+
+        <div class="mb-3">
+            <label for="ColorTitle" class="form-label">Title</label>
+            <input type="text" class="form-control" name="StorageTitle" value="@Model.StorageTitle">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+
+}
+
+
+
+

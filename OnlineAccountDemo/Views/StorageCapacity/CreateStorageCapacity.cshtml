@@ -1,0 +1,32 @@
+﻿@*@model OnlineAccountDemo.Models.BrandCategory*@
+
+@{
+    ViewData["Title"] = "Add Device Storage";
+    Layout = "~/Views/Shared/_ISMLayout.cshtml";
+
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("CreateStorageCapacity", "StorageCapacity", FormMethod.Post, new { @class = "w-100" }))
+    {
+        <div class="mb-3">
+            <label for="StorageTitle" class="form-label">Title</label>
+            <input type="text" class="form-control" name="StorageTitle" placeholder="Enter Storage Title">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+
+}
+
+
+
+
